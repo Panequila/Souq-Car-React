@@ -1,0 +1,8 @@
+#foot{
+    text-decoration: none;
+}
+.footer-container.p-4 {
+    background-image: url("https://souq.car/imgs/footer-bg.jpg");
+    height: 400px;
+    width: 100%;
+  }

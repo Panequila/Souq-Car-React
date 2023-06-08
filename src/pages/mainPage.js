@@ -1,10 +1,10 @@
-import MainComponent from '../Components/MainComponent/MainComponent';
+import MainComponent from "../Components/MainComponent/MainComponent";
 import CardsCar from "../Components/CardsComponent/Cards";
-import ExploreSections from '../Components/ExploreSectionsComponent/exploreSections';
+import ExploreSections from "../Components/ExploreSectionsComponent/exploreSections";
 const MainPage = () => {
   return (
     <>
-    <MainComponent/>
+      <MainComponent />
       <ExploreSections />
       <CardsCar />
     </>
