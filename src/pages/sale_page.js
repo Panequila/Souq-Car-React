@@ -1,4 +1,4 @@
-import CarCart from "../Components/car_cart/car_cart";
+import CarCart from "../Components/car-cart/car-cart";
 import Filter from "../Components/filter/filter";
 import ViewNav from "../Components/view_nav/view_nav";
 import SliderItems from "../Components/slider/slider";

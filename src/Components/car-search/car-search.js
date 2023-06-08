@@ -1,23 +1,25 @@
 import React, { useState } from "react";
 import { Container, Row, Col } from "react-bootstrap";
 import Carousel from "react-bootstrap/Carousel";
-import "./MainComponent.css";
+import "./car-search.css";
 import { Button, Form } from "react-bootstrap";
-import DropDownComponent from "../dropDownComponent/dropDownComponent";
+import DropDownComponent from "../drop-down/drop-down";
+
 const options = [
   { key: 1, value: " for text 1" },
   { key: 2, value: " for text 2" },
   { key: 3, value: " for text 3" },
   { key: 4, value: " for text 4" },
 ];
-const options2=[
-  {key: 5 ,value:" for text 1"},
-  {key: 6 ,value:" for text 2"},
-  {key: 7 ,value:" for text 3"},
-  {key: 8 ,value:" for text 4"},
-  
-  ];
-const MainComponent = () => {
+
+const options2 = [
+  { key: 5, value: " for text 1" },
+  { key: 6, value: " for text 2" },
+  { key: 7, value: " for text 3" },
+  { key: 8, value: " for text 4" },
+];
+
+const CarSearch = () => {
   const [selectOptions, setSelectOptions] = useState("");
   const [selectOptions1, setSelectOptions1] = useState("");
   const [selectOptions2, setSelectOptions2] = useState("");
@@ -49,8 +51,7 @@ const MainComponent = () => {
         <Row className="mb-3 inputRow">
           <Col>
             <div className="titleOfInputs">
-              <i class="fa-solid fa-car "></i>{" "}
-              <p className="me-2">ابحث عن سيارة</p>{" "}
+              <i class="fa-solid fa-car "></i> <p className="me-2">ابحث عن سيارة</p>{" "}
             </div>
             <div className=" divInput">
               <Row>
@@ -81,71 +82,56 @@ const MainComponent = () => {
                   </div>
                 </Col>
                 <Col>
-                <DropDownComponent
-                      options={options}
-                      onChange={(item) => {
-                        setSelectOptions1(item);
-                      }}
-                      selectedKay={selectOptions1}
-                      placeholder
-                      open={open}
-                      setOpen={setOpen}
-                    />
+                  <DropDownComponent
+                    options={options}
+                    onChange={(item) => {
+                      setSelectOptions1(item);
+                    }}
+                    selectedKay={selectOptions1}
+                    placeholder
+                    open={open}
+                    setOpen={setOpen}
+                  />
                 </Col>
                 <Col>
-                <DropDownComponent
-                      options={options}
-                      onChange={(item) => {
-                        setSelectOptions2(item);
-                      }}
-                      selectedKay={selectOptions2}
-                      placeholder
-                      open={open}
-                      setOpen={setOpen}
-                    />
+                  <DropDownComponent
+                    options={options}
+                    onChange={(item) => {
+                      setSelectOptions2(item);
+                    }}
+                    selectedKay={selectOptions2}
+                    placeholder
+                    open={open}
+                    setOpen={setOpen}
+                  />
                 </Col>
                 <Col>
-                <DropDownComponent
-                      options={options2}
-                      onChange={(item) => {
-                        setSelectOptions(item);
-                      }}
-                      selectedKay={selectOptions}
-                      placeholder
-                      open={open}
-                      setOpen={setOpen}
-                    />
+                  <DropDownComponent
+                    options={options2}
+                    onChange={(item) => {
+                      setSelectOptions(item);
+                    }}
+                    selectedKay={selectOptions}
+                    placeholder
+                    open={open}
+                    setOpen={setOpen}
+                  />
                 </Col>
               </Row>
               <Row className="my-3">
                 <Col sm={4}>
                   <Form className="d-flex">
-                    <Form.Control
-                      type="search"
-                      placeholder="السعر الأعلى"
-                      className="me-2"
-                      aria-label="Search"
-                    />
+                    <Form.Control type="search" placeholder="السعر الأعلى" className="me-2" aria-label="Search" />
                   </Form>
                 </Col>
                 <Col sm={4}>
                   <Form className="d-flex">
-                    <Form.Control
-                      type="search"
-                      placeholder="السعر الأدنى"
-                      className="me-2"
-                      aria-label="Search"
-                    />
+                    <Form.Control type="search" placeholder="السعر الأدنى" className="me-2" aria-label="Search" />
                   </Form>
                 </Col>
                 <Col sm={4}>
                   <Form className="d-flex">
-                    <Form.Control
-                      type="search"
-                      placeholder="Search"
-                      className="me-2"
-                      aria-label="Search"
-                    />
+                    <Form.Control type="search" placeholder="Search" className="me-2" aria-label="Search" />
                     <Button>Search</Button>
                   </Form>
                 </Col>
@@ -157,4 +143,4 @@ const MainComponent = () => {
     </>
   );
 };
-export default MainComponent;
+export default CarSearch;

@@ -1,13 +1,7 @@
 import { useState } from "react";
-import "./dropDownComponent.css";
-const DropDownComponent = ({
-  options,
-  placeholder = "",
-  onChange,
-  selectedKay,
-  open,
-  setOpen,
-}) => {
+import "./drop-down.css";
+
+const DropDownComponent = ({ options, placeholder = "", onChange, selectedKay, open, setOpen }) => {
   const [inputValue, setInputValue] = useState("");
 
   const onInputChange = (e) => {
@@ -29,20 +23,12 @@ const DropDownComponent = ({
     <>
       <div className="dropdownContainer">
         <div className="inputContainer" onClick={onInputClick}>
-          <input
-            type="text"
-            value={inputValue}
-            placeholder={placeholder}
-            onChange={onInputChange}
-          />
+          <input type="text" value={inputValue} placeholder={placeholder} onChange={onInputChange} />
           <div className="inputArrowContainer">
             <i className="inputArrow" />
           </div>
           {selectedKay || inputValue ? (
-            <div
-              className="inputClearContainer inputArrowContainer"
-              onClick={clearDropdown}
-            >
+            <div className="inputClearContainer inputArrowContainer" onClick={clearDropdown}>
               x
             </div>
           ) : null}

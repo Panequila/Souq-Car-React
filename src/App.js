@@ -1,7 +1,7 @@
 import "./App.css";
 import { Route, Routes } from "react-router-dom";
 import SalePage from "./pages/sale_page";
-import MainPage from "./pages/mainPage";
+import MainPage from "./pages/main-page";
 import NavigationBar from "./Components/navbar/navbar";
 import Footer from "./Components/footer/footer";
 

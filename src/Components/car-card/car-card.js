@@ -2,12 +2,12 @@ import React from "react";
 import Container from "react-bootstrap/Container";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
-import "./Cards.css";
+import "./car-card.css";
 import Button from "react-bootstrap/Button";
 
 // import { FaPlus } from "react-icons/fa6";
 
-const CardsCar = () => {
+const CarCard = () => {
   return (
     <>
       <Container>
@@ -44,24 +44,24 @@ const CardsCar = () => {
         </Row>
         <Row className="mt-4">
           <Col className="articlesCard mx-2">
-           <div className="parentImg">
-           <img
-              src="https://souq.car/storage/posts/1746a2a6be81483abfd69781b39c31d4_20230531095557_main_image.jpg"
-              className="w-100 articlesCard-img"
-            ></img>
-           </div>
+            <div className="parentImg">
+              <img
+                src="https://souq.car/storage/posts/1746a2a6be81483abfd69781b39c31d4_20230531095557_main_image.jpg"
+                className="w-100 articlesCard-img"
+              ></img>
+            </div>
             <p className="articlesCard-taxt">
               {" "}
               <a>هل حقا الشركات تبيعنا سيارات رخيصة تفتقر لمعايير السلامة؟ </a>
             </p>
           </Col>
           <Col className="articlesCard mx-2">
-           <div className="parentImg">
-           <img
-              src="https://souq.car/storage/posts/2307074b8bd74d0984b10b6b21916ce6_20230521075001_main_image.jpg"
-              className="w-100 articlesCard-img"
-            ></img>
-           </div>
+            <div className="parentImg">
+              <img
+                src="https://souq.car/storage/posts/2307074b8bd74d0984b10b6b21916ce6_20230521075001_main_image.jpg"
+                className="w-100 articlesCard-img"
+              ></img>
+            </div>
             <p className="articlesCard-taxt">
               {" "}
               <a>ما مدى صعوبة بناء سيارة من الصفر؟ تعرف على VF8 الفيتنامية </a>
@@ -69,10 +69,10 @@ const CardsCar = () => {
           </Col>
           <Col className="articlesCard mx-2">
             <div className="parentImg">
-            <img
-              src="https://souq.car/storage/posts/82a9723c03a5470facea77421719939c_20230515073124_main_image.jpg"
-              className="w-100 articlesCard-img"
-            ></img>
+              <img
+                src="https://souq.car/storage/posts/82a9723c03a5470facea77421719939c_20230515073124_main_image.jpg"
+                className="w-100 articlesCard-img"
+              ></img>
             </div>
             <p className="articlesCard-taxt">
               {" "}
@@ -80,19 +80,16 @@ const CardsCar = () => {
             </p>
           </Col>
           <Col className="articlesCard mx-2">
-           <div className="parentImg">
-           <img
-              src="	https://souq.car/storage/posts/5fe986a71d28415eb4447dee47685f2b_20230507055116_main_image.jpg"
-              className="w-100 articlesCard-img"
-              alt="imgCard"
-            ></img>
-           </div>
+            <div className="parentImg">
+              <img
+                src="	https://souq.car/storage/posts/5fe986a71d28415eb4447dee47685f2b_20230507055116_main_image.jpg"
+                className="w-100 articlesCard-img"
+                alt="imgCard"
+              ></img>
+            </div>
             <p className="articlesCard-taxt">
               {" "}
-              <a>
-                مالكوري الجنوبي يحرز اللقب ويؤكد "لن نستبدل المفاتيح الصلبة
-                بشاشات اللمس"
-              </a>
+              <a>مالكوري الجنوبي يحرز اللقب ويؤكد "لن نستبدل المفاتيح الصلبة بشاشات اللمس"</a>
             </p>
           </Col>
         </Row>
@@ -100,4 +97,4 @@ const CardsCar = () => {
     </>
   );
 };
-export default CardsCar;
+export default CarCard;
