@@ -1,0 +1,71 @@
+
+import { Swiper, SwiperSlide } from 'swiper/react';
+import { Navigation } from 'swiper';
+
+import 'swiper/css';
+import 'swiper/css/navigation';
+import 'swiper/css/pagination';
+import 'swiper/css/scrollbar';
+
+const SliderItems =(param)=>{
+    
+    return <>
+    <div className=' m-2'>
+      <Swiper
+       
+      modules={[Navigation]}
+      navigation
+      pagination={{ clickable: true }}
+     bosition
+      onSwiper={(swiper) => console.log(swiper)}
+      onSlideChange={() => console.log('slide change')}
+      freeMode = {true}
+      grabCursor={true}
+      breakpoints={{
+       400:{
+            slidesPerView:1,
+            spaceBetween:10
+        },
+        900:{
+          slidesPerView:2,
+          spaceBetween:10
+      },
+      
+       1000:{
+            slidesPerView:4,
+            spaceBetween:10
+        },
+        1050:{
+          slidesPerView:5,
+          spaceBetween:10
+      }
+      }}
+    >
+      
+      <SwiperSlide> 
+        {param.cart} 
+         </SwiperSlide> 
+         <SwiperSlide> 
+         {param.cart} 
+         </SwiperSlide> 
+         <SwiperSlide> 
+         {param.cart} 
+         </SwiperSlide> 
+         <SwiperSlide> 
+         {param.cart} 
+         </SwiperSlide> 
+         <SwiperSlide> 
+         {param.cart} 
+         </SwiperSlide> 
+         <SwiperSlide> 
+         {param.cart} 
+         </SwiperSlide> 
+         <SwiperSlide> 
+         {param.cart} 
+         </SwiperSlide> 
+    </Swiper>
+    
+    </div>
+    </>
+}
+export default SliderItems
