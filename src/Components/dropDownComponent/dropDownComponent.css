@@ -1,0 +1,55 @@
+.inputContainer {
+  position: relative;
+}
+.inputArrowContainer {
+  position: absolute;
+  right: 10px;
+  top: 50%;
+  transform: translateY(-50%);
+  margin-top: -2px;
+  cursor: pointer;
+}
+.inputArrow {
+  border: solid black;
+  border-width: 0 2px 2px 0;
+  display: inline-block;
+  padding: 3px;
+  transform: translateY(45deg);
+  -webkit-transform: rotate(45deg);
+}
+.dropdownContainer input {
+  width: 100%;
+  padding: 0;
+  border-width: 1px;
+  height: 36px;
+  padding-right: 40px;
+}
+.option {
+  height: 25px;
+  border-bottom: 1px solid black;
+  padding-right: 10px;
+  background-color: white;
+  cursor: pointer;
+  width: 100%;
+}
+.option:hover {
+  background-color: lightskyblue;
+}
+.dropdown {
+  border: 1px solid black;
+  border-bottom: none;
+  width: 100%;
+  position: absolute;
+  display: none;
+}
+.dropdown.visible{
+    display: block;
+}
+.dropdownContainer {
+  position: relative;
+}
+.inputClearContainer {
+  right: 30px;
+  margin-top: -2px;
+  font-size: 17px;
+}
