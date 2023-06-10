@@ -4,9 +4,11 @@ import "./drop-down.css";
 const Icon = () => {
   return <i class="fa-solid fa-chevron-down"></i>;
 };
+
 const Dropdown = ({ options, placeHolder = "" }) => {
   const [showMenu, setShowMenu] = useState(false);
   const [selectedValue, setselectedValue] = useState(null);
+
   useEffect(() => {
     const handler = () => setShowMenu(false);
     window.addEventListener("click", handler);
@@ -14,6 +16,7 @@ const Dropdown = ({ options, placeHolder = "" }) => {
       window.removeEventListener("click", handler);
     };
   });
+
   const handelInputClick = (e) => {
     e.stopPropagation();
     setShowMenu(!showMenu);
@@ -29,33 +32,34 @@ const Dropdown = ({ options, placeHolder = "" }) => {
   const onItemClick = (option) => {
     return setselectedValue(option);
   };
+
   const isSelected = (option) => {
     if (!selectedValue) {
       return false;
     }
     return selectedValue.value === option.value;
   };
+
   return (
     <>
       <div className="dropdown-container">
         <div onClick={handelInputClick} className="dropdown-input" name="name">
           {
-            <div className="dropdown-menu">
-              { showMenu && options.map((option) => {
-                return (
-                  <div
-                    onClick={() => {
-                      onItemClick(option);
-                    }}
-                    key={option.key}
-                    className={`dropdown-item ${
-                      isSelected(option) && "selected"
-                    } `}
-                  >
-                    {option.value}
-                  </div>
-                );
-              })}
+            <div className="dropdown-car-menu">
+              {showMenu &&
+                options.map((option) => {
+                  return (
+                    <div
+                      onClick={() => {
+                        onItemClick(option);
+                      }}
+                      key={option.key}
+                      className={`dropdown-item ${isSelected(option) && "selected"} `}
+                    >
+                      {option.value}
+                    </div>
+                  );
+                })}
             </div>
           }
           <div className="dropdown-selected-value">{getDisplay()}</div>

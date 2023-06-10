@@ -1,6 +1,7 @@
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Navigation } from "swiper";
 
+import "./car-types-swiper.css"
 import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
@@ -13,8 +14,8 @@ const SliderTypesItem = (props) => {
 
   return (
     <>
-      <div className=" m-2">
-      <div style={{fontSize:20 ,marginBottom:7 ,fontWeight:"bold"}}>بحث  بأنواع السيارات </div>
+      <div className="swiperContainer">
+        <div style={{ fontSize: 20, marginBottom: 7, fontWeight: "bold" }}>بحث بأنواع السيارات </div>
         <Swiper
           modules={[Navigation]}
           navigation

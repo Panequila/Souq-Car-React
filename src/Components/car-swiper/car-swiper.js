@@ -6,15 +6,15 @@ import "swiper/css/navigation";
 import "swiper/css/pagination";
 import "swiper/css/scrollbar";
 
-import CardCarBrands from "../card-car-brands/card -car-brands";
+import CarSwiperChild from "../car-swiper-child/car-brand-swiper-child";
 
-const SliderBrandsItem = (props) => {
-  const carBrand = props.carBrand;
+const CarSwiper = (props) => {
+  const cars = props.car;
 
   return (
     <>
-      <div className=" m-2">
-      <div style={{fontSize:20 ,marginBottom:7  ,fontWeight:"bold"}}>بحث بماركات السيارات</div>
+      <div className="swiperContainer">
+        <div style={{ fontSize: 20, marginBottom: 7, fontWeight: "bold" }}>بحث بماركات السيارات</div>
         <Swiper
           modules={[Navigation]}
           navigation
@@ -44,9 +44,9 @@ const SliderBrandsItem = (props) => {
             },
           }}
         >
-          {carBrand.map((carBrand) => (
+          {cars.map((car) => (
             <SwiperSlide>
-              <CardCarBrands key={carBrand.id} car={carBrand}></CardCarBrands>
+              <CarSwiperChild key={car.id} car={car}></CarSwiperChild>
             </SwiperSlide>
           ))}
         </Swiper>
@@ -54,4 +54,4 @@ const SliderBrandsItem = (props) => {
     </>
   );
 };
-export default SliderBrandsItem;
+export default CarSwiper;

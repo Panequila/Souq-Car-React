@@ -5,20 +5,19 @@ import "./car-search.css";
 import { Button, Form } from "react-bootstrap";
 import Dropdown from "../drop-down/drop-down";
 
-
-
 const CarSearch = () => {
+  
   const options = [
     { key: "1", value: " تويوتا" },
     { key: "2", value: " هوينداي" },
     { key: "3", value: " مرسيدس" },
     { key: "4", value: " كيا" },
   ];
-  
+
   const options2 = [
     { key: "5", value: " no resulte found" },
     { key: "6", value: " " },
-    { key: '7', value: " " },
+    { key: "7", value: " " },
     { key: "8", value: " " },
   ];
   const options3 = [
@@ -27,11 +26,10 @@ const CarSearch = () => {
     { key: "11", value: " الاسكندريه" },
     { key: "12", value: " سوهاج" },
   ];
-  
+
   const options4 = [
-    { key: "13", value:"بيع و شراء السيارات "},
+    { key: "13", value: "بيع و شراء السيارات " },
     { key: "14", value: "تاجير السيارات" },
-  
   ];
 
   return (
@@ -78,29 +76,17 @@ const CarSearch = () => {
               <Row className="my-3">
                 <Col>
                   <div>
-                    <Dropdown
-                      options={options}
-                      placeHolder="المصنع"
-                    />
+                    <Dropdown options={options} placeHolder="المصنع" />
                   </div>
                 </Col>
                 <Col>
-                  <Dropdown
-                    options={options2}
-                    placeHolder="موديل السياره"
-                  />
+                  <Dropdown options={options2} placeHolder="موديل السياره" />
                 </Col>
                 <Col>
-                  <Dropdown
-                    options={options3}
-                    placeHolder="اختر المحافظة"
-                  />
+                  <Dropdown options={options3} placeHolder="اختر المحافظة" />
                 </Col>
                 <Col>
-                  <Dropdown
-                    options={options4}
-                    placeHolder="بيع و شراء السيارات "
-                  />
+                  <Dropdown options={options4} placeHolder="بيع و شراء السيارات " />
                 </Col>
               </Row>
               <Row className="my-3 ">
