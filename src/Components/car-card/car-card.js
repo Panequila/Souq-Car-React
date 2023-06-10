@@ -5,7 +5,6 @@ import Col from "react-bootstrap/Col";
 import "./car-card.css";
 import Button from "react-bootstrap/Button";
 
-// import { FaPlus } from "react-icons/fa6";
 
 const CarCard = () => {
   return (
@@ -47,7 +46,7 @@ const CarCard = () => {
             <div className="parentImg">
               <img
                 src="https://souq.car/storage/posts/1746a2a6be81483abfd69781b39c31d4_20230531095557_main_image.jpg"
-                className="w-100 articlesCard-img"
+                className="w-100 articlesCard-img"  alt="imgCard"
               ></img>
             </div>
             <p className="articlesCard-taxt">
@@ -59,7 +58,7 @@ const CarCard = () => {
             <div className="parentImg">
               <img
                 src="https://souq.car/storage/posts/2307074b8bd74d0984b10b6b21916ce6_20230521075001_main_image.jpg"
-                className="w-100 articlesCard-img"
+                className="w-100 articlesCard-img" alt="imgCard"
               ></img>
             </div>
             <p className="articlesCard-taxt">
@@ -71,7 +70,7 @@ const CarCard = () => {
             <div className="parentImg">
               <img
                 src="https://souq.car/storage/posts/82a9723c03a5470facea77421719939c_20230515073124_main_image.jpg"
-                className="w-100 articlesCard-img"
+                className="w-100 articlesCard-img"  alt="imgCard"
               ></img>
             </div>
             <p className="articlesCard-taxt">

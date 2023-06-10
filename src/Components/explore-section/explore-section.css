@@ -6,7 +6,7 @@
 }
 .expioreCard:hover {
   border: 3px solid blue;
-  border-radius: 20px;
+  border-radius: 19px;
   background-color: #99b5ff;
 }
 .exploreText {
