@@ -2,7 +2,6 @@ import CarSearch from "../Components/car-search/car-search";
 import CarCard from "../Components/car-card/car-card";
 import ExploreSection from "../Components/explore-section/explore-section";
 import CarSwiper from "../Components/car-swiper/car-swiper";
-import SliderTypesItem from "../Components/car-types-swiper/car-types-swiper";
 import Footer from "../Components/footer/footer";
 import NavigationBar from "../Components/navbar/navbar";
 const MainPage = () => {
