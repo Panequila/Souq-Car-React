@@ -1,55 +1,72 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import "./drop-down.css";
 
-const DropDownComponent = ({ options, placeholder = "", onChange, selectedKay, open, setOpen }) => {
-  const [inputValue, setInputValue] = useState("");
+const Icon = () => {
+  return <i class="fa-solid fa-chevron-down"></i>;
+};
+const Dropdown = ({ options, placeHolder = "" }) => {
+  const [showMenu, setShowMenu] = useState(false);
+  const [selectedValue, setselectedValue] = useState(null);
+  useEffect(() => {
+    const handler = () => setShowMenu(false);
+    window.addEventListener("click", handler);
+    return () => {
+      window.removeEventListener("click", handler);
+    };
+  });
+  const handelInputClick = (e) => {
+    e.stopPropagation();
+    setShowMenu(!showMenu);
+  };
 
-  const onInputChange = (e) => {
-    setInputValue(e.target.value);
+  const getDisplay = () => {
+    if (selectedValue) {
+      return selectedValue.value;
+    }
+    return placeHolder;
   };
-  const onItemSelected = (option) => {
-    onChange !== undefined && onChange(option.key);
-    onChange !== undefined && setInputValue(option.value);
-    setOpen(false);
+
+  const onItemClick = (option) => {
+    return setselectedValue(option);
   };
-  const onInputClick = () => {
-    setOpen((prevValue) => !prevValue);
-  };
-  const clearDropdown = () => {
-    setInputValue("");
-    onChange("");
+  const isSelected = (option) => {
+    if (!selectedValue) {
+      return false;
+    }
+    return selectedValue.value === option.value;
   };
   return (
     <>
-      <div className="dropdownContainer">
-        <div className="inputContainer" onClick={onInputClick}>
-          <input type="text" value={inputValue} placeholder={placeholder} onChange={onInputChange} />
-          <div className="inputArrowContainer">
-            <i className="inputArrow" />
-          </div>
-          {selectedKay || inputValue ? (
-            <div className="inputClearContainer inputArrowContainer" onClick={clearDropdown}>
-              x
+      <div className="dropdown-container">
+        <div onClick={handelInputClick} className="dropdown-input" name="name">
+          {
+            <div className="dropdown-menu">
+              { showMenu && options.map((option) => {
+                return (
+                  <div
+                    onClick={() => {
+                      onItemClick(option);
+                    }}
+                    key={option.key}
+                    className={`dropdown-item ${
+                      isSelected(option) && "selected"
+                    } `}
+                  >
+                    {option.value}
+                  </div>
+                );
+              })}
             </div>
-          ) : null}
-        </div>
-        <div className={`dropdown ${open ? "visible" : ""}`}>
-          {options.map((opt) => {
-            return (
-              <div
-                key={opt.key}
-                onClick={() => {
-                  onItemSelected(opt);
-                }}
-                className="option"
-              >
-                {opt.value}
-              </div>
-            );
-          })}
+          }
+          <div className="dropdown-selected-value">{getDisplay()}</div>
+          <div className="dropdown-tools">
+            <div className="dropdown-tool">
+              <Icon />
+            </div>
+          </div>
         </div>
       </div>
     </>
   );
 };
-export default DropDownComponent;
+export default Dropdown;
