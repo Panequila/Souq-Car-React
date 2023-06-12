@@ -2,6 +2,7 @@ import CarCart from "../Components/car-cart/car-cart";
 import Filter from "../Components/filter/filter";
 import ViewNav from "../Components/view_nav/view_nav";
 import SliderItems from "../Components/slider/slider";
+import { Image } from "react-bootstrap";
 
 function SalePage(props) {
   const cars = [
@@ -49,6 +50,20 @@ function SalePage(props) {
 
   return (
     <>
+        <div
+        className="w-100 bg-img radius-15 pt-3 pb-3 ps-5 pe-5 pos-relative cover rounded-3"
+        style={{
+          backgroundImage:"url('https://souq.car/imgs/sub-header.jpg')",
+          backgroundrRepeat: 'no-repeat',
+          backgroundPosition: 'center',
+          backgroundSize: 'cover',
+          width: '100%',
+        }}
+        >
+        <h1 class="f-medium f-w-800 text-white pos-relative mb-0" style={{textAlign: 'start '}}>
+          بيع و شراء السيارات
+        </h1>
+      </div>
       <div className="row bg-light">
         {/* <SliderItems cart={<SliderCard />} /> */}
         <SliderItems cars={cars} />

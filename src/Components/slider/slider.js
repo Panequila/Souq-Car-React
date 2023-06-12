@@ -26,20 +26,20 @@ const SliderItems = (props) => {
           breakpoints={{
             400: {
               slidesPerView: 1,
-              spaceBetween: 10,
+              spaceBetween: 5,
             },
             900: {
               slidesPerView: 2,
-              spaceBetween: 10,
+              spaceBetween: 5,
             },
 
             1000: {
               slidesPerView: 4,
-              spaceBetween: 10,
+              spaceBetween: 5,
             },
             1050: {
               slidesPerView: 5,
-              spaceBetween: 10,
+              spaceBetween: 5,
             },
           }}
         >
