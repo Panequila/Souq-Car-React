@@ -30,12 +30,12 @@ const SliderCard = (props) => {
             <br />
             <span>
               <a href="">
-                <i class="fa-regular fa-heart " style={{ marginLeft: "10px", color: "black" }}></i>
+                <i class="fa-regular fa-heart " style={{ marginLeft: "11px", color: "black" }}></i>
               </a>
               حفظ إلاعلان
             </span>
-            <span style={{ marginInline: "80px" }}>
-              <i class="fa-sharp fa-solid fa-share-nodes" style={{ marginLeft: "10px", color: "black" }}></i>مشاركة
+            <span style={{ marginInline: "75px" }}>
+              <i class="fa-sharp fa-solid fa-share-nodes" style={{ marginLeft: "15px", color: "black" }}></i>مشاركة
             </span>
           </Card.Text>
         </Card.Body>

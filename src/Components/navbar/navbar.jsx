@@ -6,7 +6,7 @@ import "./navbar.css";
 export default function NavigationBar(props) {
   return (
     <>
-      <div className="row justify-content-between align-content-between main" style={{ height: "100%" }}>
+      <div className="row justify-content-between align-content-between main" >
         <nav
           className="navbar navbar-expand-lg navbar-light w-100% m-auto  p-3 mb-3 rounded flex-fill justify-content-between bg-white"
           dir="rtl"
@@ -34,48 +34,44 @@ export default function NavigationBar(props) {
               <span className="navbar-toggler-icon"></span>
             </button>
             <div className="collapse navbar-collapse " id="navbarNavAltMarkup">
-              <div className="navbar-nav flex-fill justify-content-end ">
-                <a id="link" className="nav-link fw-bolder text-black mx-3 " aria-current="page" href="./">
-                  الرئيسية
-                </a>
-
-                <Nav.Link as={Link} to="/SalePage" id="link" className="nav-link fw-bolder text-black mx-3 " aria-current="page" >
+              <div className=" flex-fill justify-content-end ">
+                <Link as={Link} to="/MainPage" id="link" className="text-decoration-none fw-bolder  mx-3 " aria-current="page" >
+                الرئيسية
+                </Link>
+                <Link as={Link} to="/SalePage" id="link" className="text-decoration-none fw-bolder  mx-3 " aria-current="page" >
                   شراء
-                </Nav.Link>
-
-                <a id="link" className="nav-link fw-bolder text-black mx-3" href="./SalePage">
-                  شراء
-                </a>
-                <a id="link" className="nav-link fw-bolder text-black mx-3" href="#">
+                </Link>
+                <a id="link" className="text-decoration-none fw-bolder mx-3" href="#">
                   تأجير
                 </a>
-                <a id="link" className="nav-link fw-bolder text-black mx-3" href="#">
+                <a id="link" className="text-decoration-none fw-bolder mx-3" href="#">
                   صيانة
                 </a>
-                <a id="link" className="nav-link fw-bolder text-black mx-3" href="#">
+                <a id="link" className="text-decoration-none fw-bolder mx-3" href="#">
                   قطع الغيار
                 </a>
-                <a id="link" className="nav-link fw-bolder text-black mx-3" href="#">
+                <a id="link" className="text-decoration-none fw-bolder mx-3" href="#">
                   ونش إنقاذ
                 </a>
-                <a id="link" className="nav-link fw-bolder text-black mx-3" href="#">
+                <a id="link" className="text-decoration-none fw-bolder mx-3" href="#">
                   الأخبار
                 </a>
-                <a id="link" className="nav-link fw-bolder text-black mx-3" href="#">
+                <a id="link" className="text-decoration-none fw-bolder text-black mx-3" href="#">
                   <i class="fa-regular fa-heart"></i>
                 </a>
-                <a id="link" className="nav-link fw-bolder text-black mx-3" href="#">
+                <a id="link" className="text-decoration-none fw-bolder text-black mx-3" href="#">
                   <i class="fa-regular fa-moon"></i>
                 </a>
-                <a id="link" className="nav-link fw-bolder text-black mx-3" href="#">
+                <a id="link" className="text-decoration-none fw-bolder text-black mx-3" href="#">
                   <i class="fa-solid fa-earth-americas"></i>
                 </a>
               </div>
-              <button className="btn btn-primary">أضف اعلان</button>
+              <button id="btnn">+ أضف اعلان</button>
             </div>
           </div>
         </nav>
       </div>
+      <br />
     </>
   );
 }

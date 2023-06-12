@@ -22,9 +22,7 @@ function CarCart(props) {
                   <div className="col-4">
                     <img className="w-100" src="https://souq.car/storage/car_makers/14.jpg" alt="" />
                   </div>
-                  <div className="col-8">
-                    <p>{car.name}</p>
-                  </div>
+                  
                 </div>
               </div>
               <p className="col-6" style={{ textAlign: "end" }}>
@@ -36,19 +34,19 @@ function CarCart(props) {
               <div className="row p-3" style={{ textAlign: "start" }}>
                 <div className="col">
                   <i className="fa-solid fa-gauge-high"></i>
-                  <span>عدد الكيلومترات</span>
+                  <span style={{margin:"8px"}}>عدد الكيلومترات</span>
 
                   <h6>{car.kilometers}</h6>
                 </div>
                 <div className="col">
                   <i className="fa-regular fa-calendar-days"></i>
-                  <span>سنه التصنيع </span>
+                  <span style={{margin:"8px"}}>سنه التصنيع {car.manufactureDate}</span>
 
-                  <h6>{car.manufactureDate}</h6>
+              
                 </div>
                 <div className="col">
                   <i className="fa-sharp fa-solid fa-location-dot"></i>
-                  <span>الموقع</span>
+                  <span style={{margin:"8px"}} >الموقع</span>
 
                   <h6>{car.location}</h6>
                 </div>
@@ -71,7 +69,7 @@ function CarCart(props) {
                 </div>
                 <div className="col-6" style={{ textAlign: "end" }}>
                   <span className="fa-regular fa-heart" style={{ alignItems: "end" }}></span>
-                  <span className="display">حفظ الاعلان</span>
+                  <span className="display" style={{margin:"8px"}}>حفظ الاعلان</span>
                 </div>
               </div>
             </div>
