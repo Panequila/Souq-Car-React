@@ -1,30 +1,37 @@
-import React, { useState } from "react";
+import React from "react";
 import { Container, Row, Col } from "react-bootstrap";
 import Carousel from "react-bootstrap/Carousel";
 import "./car-search.css";
 import { Button, Form } from "react-bootstrap";
-import DropDownComponent from "../drop-down/drop-down";
-
-const options = [
-  { key: 1, value: " for text 1" },
-  { key: 2, value: " for text 2" },
-  { key: 3, value: " for text 3" },
-  { key: 4, value: " for text 4" },
-];
-
-const options2 = [
-  { key: 5, value: " for text 1" },
-  { key: 6, value: " for text 2" },
-  { key: 7, value: " for text 3" },
-  { key: 8, value: " for text 4" },
-];
+import Dropdown from "../drop-down/drop-down";
 
 const CarSearch = () => {
-  const [selectOptions, setSelectOptions] = useState("");
-  const [selectOptions1, setSelectOptions1] = useState("");
-  const [selectOptions2, setSelectOptions2] = useState("");
-  const [selectOptions3, setSelectOptions3] = useState("");
-  const [open, setOpen] = useState(false);
+  
+  const options = [
+    { key: "1", value: " تويوتا" },
+    { key: "2", value: " هوينداي" },
+    { key: "3", value: " مرسيدس" },
+    { key: "4", value: " كيا" },
+  ];
+
+  const options2 = [
+    { key: "5", value: " no resulte found" },
+    { key: "6", value: " " },
+    { key: "7", value: " " },
+    { key: "8", value: " " },
+  ];
+  const options3 = [
+    { key: "9", value: " القاهره" },
+    { key: "10", value: " الجيزه" },
+    { key: "11", value: " الاسكندريه" },
+    { key: "12", value: " سوهاج" },
+  ];
+
+  const options4 = [
+    { key: "13", value: "بيع و شراء السيارات " },
+    { key: "14", value: "تاجير السيارات" },
+  ];
+
   return (
     <>
       <Container className="parentContainer">
@@ -69,56 +76,20 @@ const CarSearch = () => {
               <Row className="my-3">
                 <Col>
                   <div>
-                    <DropDownComponent
-                      options={options}
-                      onChange={(item) => {
-                        setSelectOptions3(item);
-                      }}
-                      selectedKay={selectOptions3}
-                      placeholder
-                      open={open}
-                      setOpen={setOpen}
-                    />
+                    <Dropdown options={options} placeHolder="المصنع" />
                   </div>
                 </Col>
                 <Col>
-                  <DropDownComponent
-                    options={options}
-                    onChange={(item) => {
-                      setSelectOptions1(item);
-                    }}
-                    selectedKay={selectOptions1}
-                    placeholder
-                    open={open}
-                    setOpen={setOpen}
-                  />
+                  <Dropdown options={options2} placeHolder="موديل السياره" />
                 </Col>
                 <Col>
-                  <DropDownComponent
-                    options={options}
-                    onChange={(item) => {
-                      setSelectOptions2(item);
-                    }}
-                    selectedKay={selectOptions2}
-                    placeholder
-                    open={open}
-                    setOpen={setOpen}
-                  />
+                  <Dropdown options={options3} placeHolder="اختر المحافظة" />
                 </Col>
                 <Col>
-                  <DropDownComponent
-                    options={options2}
-                    onChange={(item) => {
-                      setSelectOptions(item);
-                    }}
-                    selectedKay={selectOptions}
-                    placeholder
-                    open={open}
-                    setOpen={setOpen}
-                  />
+                  <Dropdown options={options4} placeHolder="بيع و شراء السيارات " />
                 </Col>
               </Row>
-              <Row className="my-3">
+              <Row className="my-3 ">
                 <Col sm={4}>
                   <Form className="d-flex">
                     <Form.Control type="search" placeholder="السعر الأعلى" className="me-2" aria-label="Search" />
