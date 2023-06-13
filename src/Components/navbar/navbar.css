@@ -1,26 +1,24 @@
-#link{
-    font-size: 25px;
-    padding: 7px;
-    color: #000;
+#link {
+  font-size: 25px;
+  padding: 7px;
+  color: #000;
 }
-#link:hover{
-  
-border-bottom: 2px solid blue;
-transition: .001s all;
-color: rgb(255, 119, 0);
-
+#link:hover {
+  border-bottom: 2px solid blue;
+  transition: 0.001s all;
+  color: rgb(255, 119, 0);
 }
-#btnn{
-    background-color: blue;
-    color: white;
-    padding: 12px;
-    border-radius: 8px;
- font-size: 20px;
- border: none;
- font-weight: 800;
+#btnn {
+  background-color: blue;
+  color: white;
+  padding: 12px;
+  border-radius: 8px;
+  font-size: 20px;
+  border: none;
+  font-weight: 800;
 }
-#btnn:hover{
-    background-color: orange;
-    transition: .2s all;
+#btnn:hover {
+  background-color: orange;
+  transition: 0.2s all;
   fill: chocolate;
 }
