@@ -73,7 +73,7 @@ function SalePage(props) {
 
   return (
     <>
-      <NavigationBar></NavigationBar>
+
       
       <div className="row bg-light">
         {/* <SliderItems cart={<SliderCard />} /> */}

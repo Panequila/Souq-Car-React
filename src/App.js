@@ -6,11 +6,14 @@ import NavigationBar from "./Components/navbar/navbar";
 import Footer from "./Components/footer/footer";
 import SignInForm from "./pages/sign-in";
 import SignUpForm from "./pages/sign-up";
+import { Navbar } from 'react-bootstrap';
 
 function App() {
   return (
     <>  
+   
       <div className="container-fluid">
+      <NavigationBar/>
         <Routes>
           <Route path="/" element={<MainPage />} />
           <Route path="/MainPage" element={<MainPage />} />
