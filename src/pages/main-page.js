@@ -4,6 +4,7 @@ import ExploreSection from "../Components/explore-section/explore-section";
 import CarSwiper from "../Components/car-swiper/car-swiper";
 import Footer from "../Components/footer/footer";
 import NavigationBar from "../Components/navbar/navbar";
+
 const MainPage = () => {
   const carBrand = [
     { id: 1, name: "Audi", imgUrl: "https://souq.car/storage/car_makers/22.jpg" },
@@ -31,7 +32,6 @@ const MainPage = () => {
   ];
   return (
     <>
-      <NavigationBar></NavigationBar>
       <CarSearch />
       <CarSwiper car={carBrand} />
       <CarSwiper car={carTypes} />

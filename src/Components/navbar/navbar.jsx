@@ -6,11 +6,8 @@ import "./navbar.css";
 export default function NavigationBar(props) {
   return (
     <>
-      <div className="row justify-content-between align-content-between main" >
-        <nav
-          className="navbar navbar-expand-lg navbar-light w-100% m-auto  p-3 mb-3 rounded flex-fill justify-content-between bg-white"
-          dir="rtl"
-        >
+      <div className="row justify-content-between align-content-between main">
+        <nav className="navbar navbar-expand-lg navbar-light w-100% m-auto  p-3 mb-3 rounded flex-fill justify-content-between bg-white" dir="rtl">
           <a className="logo d-sm-block d-none" href="https://souq.car/ar" title="سوق كار">
             <img
               className="light w-100 animate_animated animate_fadeInDown duration_2s"
@@ -35,10 +32,10 @@ export default function NavigationBar(props) {
             </button>
             <div className="collapse navbar-collapse " id="navbarNavAltMarkup">
               <div className=" flex-fill justify-content-end ">
-                <Link as={Link} to="/MainPage" id="link" className="text-decoration-none fw-bolder  mx-3 " aria-current="page" >
-                الرئيسية
+                <Link as={Link} to="/MainPage" id="link" className="text-decoration-none fw-bolder  mx-3 " aria-current="page">
+                  الرئيسية
                 </Link>
-                <Link as={Link} to="/SalePage" id="link" className="text-decoration-none fw-bolder  mx-3 " aria-current="page" >
+                <Link as={Link} to="/SalePage" id="link" className="text-decoration-none fw-bolder  mx-3 " aria-current="page">
                   شراء
                 </Link>
                 <a id="link" className="text-decoration-none fw-bolder mx-3" href="#">
