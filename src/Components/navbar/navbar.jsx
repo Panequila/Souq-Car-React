@@ -1,9 +1,14 @@
 import { Navbar, Nav } from "react-bootstrap";
 import { Link } from "react-router-dom";
+import { Fragment, useContext } from "react";
+import { signOutUser } from "../../firebase/firebase";
+import { UserContext } from "../../Contexts/users";
 
 import "./navbar.css";
 
 export default function NavigationBar(props) {
+  
+  const { currentUser } = useContext(UserContext);
   return (
     <>
       <div className="row justify-content-between align-content-between main">
@@ -33,10 +38,25 @@ export default function NavigationBar(props) {
             <div className="collapse navbar-collapse " id="navbarNavAltMarkup">
               <div className=" flex-fill justify-content-end ">
                 <Link as={Link} to="/MainPage" id="link" className="text-decoration-none fw-bolder  mx-3 " aria-current="page">
-                  الرئيسية
+                  Home
                 </Link>
                 <Link as={Link} to="/SalePage" id="link" className="text-decoration-none fw-bolder  mx-3 " aria-current="page">
-                  شراء
+                  Buy Cars
+                </Link>
+                <Link as={Link} to="/login" id="link" className="text-decoration-none fw-bolder  mx-3 " aria-current="page">
+                  Sign In
+                </Link>
+                <Link>
+                  {/* If there is a signed in user then render "SignOut", if not then render "SignIn". */}
+                  {currentUser ? (
+                    <Link className="nav-link" onClick={signOutUser}>
+                      Sign Out
+                    </Link>
+                  ) : (
+                    <Link className="nav-link" to="/auth">
+                      Sign In
+                    </Link>
+                  )}
                 </Link>
                 <a id="link" className="text-decoration-none fw-bolder mx-3" href="#">
                   تأجير

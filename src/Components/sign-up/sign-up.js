@@ -1,13 +1,9 @@
 import { async } from "@firebase/util";
 import { useState, useContext } from "react";
-import FormInput from "../Components/form-input/form-input.component.jsx";
-import Button from "../Components/button/button.component.jsx";
-import {
-  createAuthUserWithEmailAndPassword,
-  createUserDocumentFromAuth,
-} from "../firebase/firebase.js";
-//import { UserContext } from "../../contexts/users.context";
-//import "./sign-up.styles.scss";
+import FormInput from "../form-input/form-input.component.jsx";
+import Button from "../button/button.component.jsx";
+import { createAuthUserWithEmailAndPassword, createUserDocumentFromAuth } from "../../firebase/firebase.js";
+import "./sign-up.scss";
 
 const defaultFormFields = {
   displayName: "",
@@ -22,7 +18,7 @@ const SignUpForm = () => {
 
   //We get the setCurrentUser function from our Context, to set the "userContext" to the Signed Up User.
   //const {setCurrentUser} = useContext(UserContext);
-  //Hooking to the context will make React run the all of code in here SignUpForm whenever the Context changes, 
+  //Hooking to the context will make React run the all of code in here SignUpForm whenever the Context changes,
   //which can be really bad if there are a lot of components hooked to the Cotnext.
   //const val = useContext(UserContext);
 
@@ -39,10 +35,7 @@ const SignUpForm = () => {
       return;
     }
     try {
-      const { user } = await createAuthUserWithEmailAndPassword(
-        email,
-        password
-      );
+      const { user } = await createAuthUserWithEmailAndPassword(email, password);
 
       //setCurrentUser(user);
 
@@ -72,41 +65,13 @@ const SignUpForm = () => {
       <h2>Don't Have An Account?</h2>
       <span>Sign up with your email and password</span>
       <form onSubmit={handleSignUp}>
-        <FormInput
-          label="Display Name"
-          type="text"
-          required
-          onChange={handleChange}
-          name="displayName"
-          value={displayName}
-        ></FormInput>
+        <FormInput label="Display Name" type="text" required onChange={handleChange} name="displayName" value={displayName}></FormInput>
 
-        <FormInput
-          label="Email"
-          type="email"
-          required
-          onChange={handleChange}
-          name="email"
-          value={email}
-        ></FormInput>
+        <FormInput label="Email" type="email" required onChange={handleChange} name="email" value={email}></FormInput>
 
-        <FormInput
-          label="Password"
-          type="password"
-          required
-          onChange={handleChange}
-          name="password"
-          value={password}
-        ></FormInput>
+        <FormInput label="Password" type="password" required onChange={handleChange} name="password" value={password}></FormInput>
 
-        <FormInput
-          label="Confirm Password"
-          type="password"
-          required
-          onChange={handleChange}
-          name="confirmPassword"
-          value={confirmPassword}
-        ></FormInput>
+        <FormInput label="Confirm Password" type="password" required onChange={handleChange} name="confirmPassword" value={confirmPassword}></FormInput>
 
         <Button type="submit">Sign Up</Button>
       </form>
