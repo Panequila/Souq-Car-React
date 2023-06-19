@@ -4,9 +4,10 @@ import SalePage from "./pages/buy-cars";
 import MainPage from "./pages/main-page";
 import NavigationBar from "./Components/navbar/navbar";
 import Footer from "./Components/footer/footer";
-import SignInForm from "./pages/sign-in";
-import SignUpForm from "./pages/sign-up";
+import SignInForm from "./Components/sign-in/sign-in";
+import SignUpForm from "./Components/sign-up/sign-up";
 import { Navbar } from "react-bootstrap";
+import Authentication from "./pages/authentication/authentication";
 
 function App() {
   return (
@@ -17,8 +18,7 @@ function App() {
           <Route path="/" element={<MainPage />} />
           <Route path="/MainPage" element={<MainPage />} />
           <Route path="/SalePage" element={<SalePage />} />
-          <Route path="/login" element={<SignInForm />} />
-          <Route path="/signUp" element={<SignUpForm />} />
+          <Route path="/login" element={<Authentication />} />
         </Routes>
       </div>
     </>
