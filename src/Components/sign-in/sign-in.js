@@ -31,6 +31,7 @@ const SignInForm = () => {
 
     try {
       const { user } = await signInAuthWithEmailAndPassword(email, password);
+      //console.log(user);
       //Setting the "currentUser" object in our Context class to the signed in User.
       //setCurrentUser(user);
       resetFormFields();
