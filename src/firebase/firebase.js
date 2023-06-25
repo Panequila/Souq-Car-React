@@ -70,7 +70,7 @@ export const signOutUser = async () => {
   await signOut(auth);
 };
 
-//The OnAuthStateChanged functions as a Listener/Observer for all the changes made to the auth.
+//The OnAuthStateChanged functions works as a Listener/Observer for all the changes made to the auth.
 //Without it, we'll have to call "setCurrentUser" in the signIn, signUp and NavBar Components to update the "currentUser" value.
 //The Auth Signleton that we instantiated is keeping track of the "user" value, and it even persists between refreshes of the page and onAuthStateChanged keeps track of it.
 export const onAuthStateChangedListener = (callback) => {
@@ -84,7 +84,7 @@ export const createUserDocumentFromAuth = async (userAuth, additionalInformation
 
   //The document reference (the firestore reference, the table, the user id)
   const userDocRef = doc(db, "users", userAuth.uid);
-  console.log(userDocRef);
+  //console.log(userDocRef);
 
   //Getting a snapshot "data" of the document reference. This gives the same data that the doc reference returns,
   //but it creates the data in a special object which we can perform operations on like "exists();" to check if the user is already in the database.
@@ -95,7 +95,7 @@ export const createUserDocumentFromAuth = async (userAuth, additionalInformation
   if (!userSnapShot.exists()) {
     const { displayName, email } = userAuth;
     const createdAt = new Date();
-
+    
     try {
       await setDoc(userDocRef, {
         displayName,

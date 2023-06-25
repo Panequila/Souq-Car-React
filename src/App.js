@@ -8,10 +8,11 @@ import SignInForm from "./Components/sign-in/sign-in";
 import SignUpForm from "./Components/sign-up/sign-up";
 import { Navbar } from "react-bootstrap";
 import Authentication from "./pages/authentication/authentication";
+import { UserProvider } from "./Contexts/users";
 
 function App() {
   return (
-    <>
+    <UserProvider>
       <div className="container-fluid">
         <NavigationBar />
         <Routes>
@@ -21,7 +22,7 @@ function App() {
           <Route path="/login" element={<Authentication />} />
         </Routes>
       </div>
-    </>
+    </UserProvider>
   );
 }
 

@@ -1,5 +1,5 @@
 import { useState, createContext, useEffect } from "react";
-import { onAuthStateChangedListener, createUserDocumentFromAuth } from "../firebase/firebase"
+import { onAuthStateChangedListener, createUserDocumentFromAuth } from "../firebase/firebase";
 
 //We can see the context as two pieces
 //First: is the actual storage itself, which is the literal context that has the value of the user.
@@ -26,6 +26,7 @@ export const UserProvider = ({ children }) => {
       }
       //Whenever the Auth State changes, set the currentUser value to the user.
       setCurrentUser(user);
+      console.log(user);
     });
 
     //Unsubscribe whenver the Compoment Unmounts.

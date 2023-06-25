@@ -7,8 +7,8 @@ import { UserContext } from "../../Contexts/users";
 import "./navbar.css";
 
 export default function NavigationBar(props) {
-  
   const { currentUser } = useContext(UserContext);
+  console.log(currentUser);
   return (
     <>
       <div className="row justify-content-between align-content-between main">
@@ -43,17 +43,17 @@ export default function NavigationBar(props) {
                 <Link as={Link} to="/SalePage" id="link" className="text-decoration-none fw-bolder  mx-3 " aria-current="page">
                   Buy Cars
                 </Link>
-                <Link as={Link} to="/login" id="link" className="text-decoration-none fw-bolder  mx-3 " aria-current="page">
+                {/* <Link as={Link} to="/login" id="link" className="text-decoration-none fw-bolder  mx-3 " aria-current="page">
                   Sign In
-                </Link>
+                </Link> */}
                 <Link>
                   {/* If there is a signed in user then render "SignOut", if not then render "SignIn". */}
                   {currentUser ? (
-                    <Link className="nav-link" onClick={signOutUser}>
-                      Sign Out
+                    <Link id="link" className="text-decoration-none fw-bolder  mx-3 " aria-current="page" onClick={signOutUser}>
+                      Welcome {currentUser.displayName} Sign Out
                     </Link>
                   ) : (
-                    <Link className="nav-link" to="/auth">
+                    <Link id="link" className="text-decoration-none fw-bolder  mx-3 " aria-current="page" to="/login">
                       Sign In
                     </Link>
                   )}
