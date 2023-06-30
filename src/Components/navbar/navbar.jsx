@@ -8,7 +8,7 @@ import "./navbar.css";
 
 export default function NavigationBar(props) {
   const { currentUser } = useContext(UserContext);
-  console.log(currentUser);
+  //console.log(currentUser);
   return (
     <>
       <div className="row justify-content-between align-content-between main">

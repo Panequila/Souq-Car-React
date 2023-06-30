@@ -1,6 +1,9 @@
-function CarCart(props) {
+import { useEffect } from "react";
+import { getCars } from "../../firebase/firebase";
 
+function CarCart(props) {
   const { car } = props;
+  console.log(car);
 
   return (
     <>
@@ -22,7 +25,6 @@ function CarCart(props) {
                   <div className="col-4">
                     <img className="w-100" src="https://souq.car/storage/car_makers/14.jpg" alt="" />
                   </div>
-                  
                 </div>
               </div>
               <p className="col-6" style={{ textAlign: "end" }}>
@@ -30,25 +32,23 @@ function CarCart(props) {
               </p>
             </div>
             <div className="card-body">
-              <h5 className="card-title">سياره لانسر شارك للبيع</h5>
+              <h5 className="card-title"> {car.name} </h5>
               <div className="row p-3" style={{ textAlign: "start" }}>
                 <div className="col">
                   <i className="fa-solid fa-gauge-high"></i>
-                  <span style={{margin:"8px"}}>عدد الكيلومترات</span>
+                  <span style={{ margin: "8px" }}>عدد الكيلومترات</span>
 
-                  <h6>{car.kilometers}</h6>
+                  <h6>kilomteres</h6>
                 </div>
                 <div className="col">
                   <i className="fa-regular fa-calendar-days"></i>
-                  <span style={{margin:"8px"}}>سنه التصنيع {car.manufactureDate}</span>
-
-              
+                  <span style={{ margin: "8px" }}>سنه التصنيع</span>
                 </div>
                 <div className="col">
                   <i className="fa-sharp fa-solid fa-location-dot"></i>
-                  <span style={{margin:"8px"}} >الموقع</span>
+                  <span style={{ margin: "8px" }}>الموقع</span>
 
-                  <h6>{car.location}</h6>
+                  <h6>location</h6>
                 </div>
               </div>
               <div className="row ">
@@ -62,14 +62,16 @@ function CarCart(props) {
                         background: "rgb(206, 224, 248)",
                       }}
                     >
-                      {car.price}
+                      price
                     </div>
                     <div className="col">مستعمل</div>
                   </div>
                 </div>
                 <div className="col-6" style={{ textAlign: "end" }}>
                   <span className="fa-regular fa-heart" style={{ alignItems: "end" }}></span>
-                  <span className="display" style={{margin:"8px"}}>حفظ الاعلان</span>
+                  <span className="display" style={{ margin: "8px" }}>
+                    حفظ الاعلان
+                  </span>
                 </div>
               </div>
             </div>

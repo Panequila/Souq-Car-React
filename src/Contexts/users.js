@@ -20,13 +20,13 @@ export const UserProvider = ({ children }) => {
   //Calling the onAuthStateChanged in the UserProvider as it ???? I really don't get this is it an infinite loop? like does the onAuth keep calling itself? IDK
   useEffect(() => {
     const unsubscribe = onAuthStateChangedListener((user) => {
-      console.log(user);
+      //console.log(user);
       if (user) {
         createUserDocumentFromAuth(user);
       }
       //Whenever the Auth State changes, set the currentUser value to the user.
       setCurrentUser(user);
-      console.log(user);
+      //console.log(user);
     });
 
     //Unsubscribe whenver the Compoment Unmounts.

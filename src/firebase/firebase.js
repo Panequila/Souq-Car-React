@@ -47,6 +47,46 @@ export const auth = getAuth();
 //A reference to our firestore (database).
 export const db = getFirestore();
 
+// Function for handling the shop data and adding it to the firebase.
+export const addCollectionAndDocuments = async (
+  // Key is database Name
+  collectionKey,
+  objectsToAdd
+) => {
+  // collection is the table we want to add, collectionKey is its name.
+  const collectionRef = collection(db, collectionKey);
+
+  // writeBatch is used for performing multiple writes in one single operation, in our case we are adding multiple objects to the collection.
+  const batch = writeBatch(db);
+
+  objectsToAdd.forEach((object) => {
+    // making a reference to the document and giving it the collection we want to add.
+    const docRef = doc(collectionRef, object.title.toLowerCase());
+    // writes to the document.
+    batch.set(docRef, object);
+  });
+
+  // commits the batch.
+  await batch.commit();
+  console.log("done");
+};
+
+export const getCars = async () => {
+  const collectionRef = collection(db, "cars");
+  const q = query(collectionRef);
+
+  // get a snapshot of the data.
+  const querySnapshot = await getDocs(q);
+  // returns an array of the data
+  const carsMap = querySnapshot.docs.reduce((acc, docSnapshot) => {
+    const { title, cars } = docSnapshot.data();
+    acc[title.toLowerCase()] = cars;
+    return acc;
+  }, {});
+
+  return carsMap;
+};
+
 export const signInWithGooglePopup = () => {
   return signInWithPopup(auth, googleProvider);
 };
