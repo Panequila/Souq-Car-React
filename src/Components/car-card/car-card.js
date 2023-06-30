@@ -4,15 +4,17 @@ import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 import "./car-card.css";
 import Button from "react-bootstrap/Button";
+import strings from '../../localization/localization';
 
 const CarCard = () => {
+
   return (
     <>
       <Container>
         <Row>
           <Col className="autoNews m-3 imgBackGroundOne">
             <p className="textCard">
-              تبحث عن مشتري لسيارتك؟
+            {strings.how}
               <Button variant="outline-warning">
                 <span className="m-2">بيع سيارتي </span>
               </Button>

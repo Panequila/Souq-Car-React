@@ -1,0 +1,16 @@
+:root {
+    --font-color: #333;
+    --background-color: #eee;
+    --link-color: cornflowerblue;
+    --card-color: #fff;
+    --gray-color:#cbc6c6;
+  }
+  
+  /* 2 */
+  [data-theme="dark"] {
+    --card-color: #0a173d;
+    --font-color: #eee;
+    --background-color: #111317;
+    --link-color: lightblue;
+    --gray-color:#1d2234;
+  }

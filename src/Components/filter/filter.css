@@ -3,7 +3,8 @@
 }
 
 .icon{
-    background-color: rgb(177, 177, 177);
+    background-color:var(--gray-color); 
+    /* rgb(177, 177, 177); */
     padding: 10px;
     border-radius: 6px;
 }
@@ -18,21 +19,40 @@ input:checked  {
     padding-left: 20px;
   }
 
-
+  .theme{
+    background-color: var(--card-color);
+    color: var(--font-color);  
+    cursor: pointer 
+  }
 
 .checkbox-container{
-    border: 2px solid rgb(0, 0, 255 , 0.4);
+    border: 2px solid rgba(181, 181, 209, 0.4);
     border-radius: 5px; 
     padding: 5px;
-    
+    cursor: pointer 
 }
 
 .checkbox-container-active{
-    border-color: rgb(0, 0, 255)  
+    border: 2px solid rgb(0, 0, 255) ;
+    border-radius: 5px; 
+    padding: 1px;
 }
 
 .input-color{
 background: rgb(0, 0, 255 , 0.4);
 }
 
+.input-pos{
+    position: absolute;
+   width: 15px;
+   height: 15px;
+    /* clip-path: circle(50% at 50% 50%); */ 
+}
+
+.color{
+    border-radius: 50%;
+    height: 35px;
+    width: 35px;
+    /* margin: 10px; */
+}
 
