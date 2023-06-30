@@ -45,7 +45,7 @@ googleProvider.setCustomParameters({
 export const auth = getAuth();
 
 //A reference to our firestore (database).
-export const db = getFirestore();
+export const db = getFirestore(); 
 
 export const signInWithGooglePopup = () => {
   return signInWithPopup(auth, googleProvider);
