@@ -1,0 +1,20 @@
+.cont{
+    background-color: var(--card-color);
+    color: var(--font-color); 
+    cursor: pointer;  
+   
+}
+img{
+    padding: absolute;
+    z-index: 5;
+}
+
+.scale:hover{
+    transform: scale(1.01);
+  }
+
+ .test{
+    transition: all 1s linear;
+ 
+    border-bottom: 2px solid blue;
+ } 

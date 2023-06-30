@@ -5,7 +5,9 @@ import CarSwiper from "../Components/car-swiper/car-swiper";
 import Footer from "../Components/footer/footer";
 import NavigationBar from "../Components/navbar/navbar";
 
+
 const MainPage = () => {
+ 
   const carBrand = [
     { id: 1, name: "Audi", imgUrl: "https://souq.car/storage/car_makers/22.jpg" },
     { id: 1, name: "Audi", imgUrl: "https://souq.car/storage/car_makers/22.jpg" },

@@ -112,3 +112,19 @@ export const createUserDocumentFromAuth = async (userAuth, additionalInformation
 
   return userDocRef;
 };
+
+export const getCars = async () => {
+  const collectionRef = collection(db, "cars");
+  const q = query(collectionRef);
+
+  // get a snapshot of the data.
+  const querySnapshot = await getDocs(q);
+  // returns an array of the data
+  const carsMap = querySnapshot.docs.reduce((acc, docSnapshot) => {
+    const { title, cars } = docSnapshot.data();
+    acc[title.toLowerCase()] = cars;
+    return acc;
+  }, {});
+
+  return carsMap;
+};

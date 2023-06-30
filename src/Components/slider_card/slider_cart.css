@@ -3,4 +3,7 @@
     height: 200px;
   }
 }
-
+#theme{
+  background-color: var(--card-color);
+  color: var(--font-color); 
+}

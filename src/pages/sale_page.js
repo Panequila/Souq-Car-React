@@ -3,6 +3,10 @@ import Filter from "../Components/filter/filter";
 import ViewNav from "../Components/view_nav/view_nav";
 import SliderItems from "../Components/slider/slider";
 import NavigationBar from "../Components/navbar/navbar";
+import { Container } from 'react-bootstrap';
+import { useEffect,useState } from "react";
+import { getCars } from "../firebase/firebase";
+import './sale_page.css'
 
 function SalePage(props) {
   const cars = [
@@ -71,10 +75,24 @@ function SalePage(props) {
       location: "القاهره",
     },
   ];
+  const [carsMap, setCarsMap] = useState([]);
 
+  var localLang = localStorage.getItem("lang")
+
+  useEffect(() => {
+    const getCarsMap = async () => {
+      const carsMap = await getCars();
+      setCarsMap(carsMap.cars_for_sale);
+      // console.log(Array.isArray(carsMap.cars));
+      // console.log(carsMap.cars_for_sale);
+    };
+
+    // Call the asynchronus function
+    getCarsMap();
+  }, []);
   return (
     <>
-      <div className="row bg-light">
+      <div className="row container2"  >
         {/* <SliderItems cart={<SliderCard />} /> */}
         <SliderItems cars={cars} />
 
@@ -82,8 +100,8 @@ function SalePage(props) {
         <div className="col-sm-12 col-lg-9">
           <ViewNav />
 
-          {cars.map((car) => (
-            <CarCart key={car.id} car={car} />
+          {carsMap.map((car) => (
+            <CarCart key={car.id} car={localLang==="ar"?car.data_ar:car.data_en} />
           ))}
         </div>
       </div>
