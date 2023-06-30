@@ -84,7 +84,6 @@ function Filter(props) {
   ]
 
   function active(el) {
-    console.log(el);
     var element = document.getElementById(el);
     element.classList.toggle("checkbox-container-active");
   }

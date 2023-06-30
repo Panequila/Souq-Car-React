@@ -26,6 +26,7 @@ localStorage.setItem("lang", language)
       <div className="container-fluid" dir={`${language==='en'?'ltr':'rtl'}`}>
 
       <NavigationBar />
+      <div className="container-fluid">
         <Routes>
           <Route path="/" element={<MainPage />} />
           <Route path="/MainPage" element={<MainPage />} />

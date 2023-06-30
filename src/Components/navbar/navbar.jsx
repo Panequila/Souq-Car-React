@@ -8,9 +8,7 @@ import "./navbar.css";
 import strings from '../../localization/localization';
 
 export default function NavigationBar(props) {
-  
   const { currentUser } = useContext(UserContext);
-
   var {language,setLanguage}=useContext(languageContext);
 
   var localTheme = localStorage.getItem("theme")
@@ -33,7 +31,6 @@ const toggelTheme = ()=>{
 
   
 }
-
 
   return (
     <>
@@ -69,17 +66,17 @@ const toggelTheme = ()=>{
                 <Link as={Link} to="/SalePage" id="link" className="text-decoration-none fw-bolder  mx-3 " aria-current="page">
                   Buy Cars
                 </Link>
-                <Link as={Link} to="/login" id="link" className="text-decoration-none fw-bolder  mx-3 " aria-current="page">
+                {/* <Link as={Link} to="/login" id="link" className="text-decoration-none fw-bolder  mx-3 " aria-current="page">
                   Sign In
-                </Link>
+                </Link> */}
                 <Link>
                   {/* If there is a signed in user then render "SignOut", if not then render "SignIn". */}
                   {currentUser ? (
-                    <Link className="nav-link" onClick={signOutUser}>
-                      Sign Out
+                    <Link id="link" className="text-decoration-none fw-bolder  mx-3 " aria-current="page" onClick={signOutUser}>
+                      Welcome {currentUser.displayName} Sign Out
                     </Link>
                   ) : (
-                    <Link className="nav-link" to="/auth">
+                    <Link id="link" className="text-decoration-none fw-bolder  mx-3 " aria-current="page" to="/login">
                       Sign In
                     </Link>
                   )}

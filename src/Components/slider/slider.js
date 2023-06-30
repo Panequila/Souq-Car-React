@@ -19,8 +19,8 @@ const SliderItems = (props) => {
           navigation
           pagination={{ clickable: true }}
           bosition
-          onSwiper={(swiper) => console.log(swiper)}
-          onSlideChange={() => console.log("slide change")}
+            // onSwiper={(swiper) => console.log(swiper)}
+            // onSlideChange={() => console.log("slide change")}
           freeMode={true}
           grabCursor={true}
           breakpoints={{
