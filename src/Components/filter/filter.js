@@ -54,9 +54,7 @@ function Filter(props) {
   for (let year = 2024; year >= 1968; year--) {
     yearList.push(year);
   }
-  console.log(yearList);
   function active(el) {
-    console.log(el);
     var element = document.getElementById(el);
     element.classList.toggle("checkbox-container-active");
   }
