@@ -47,46 +47,6 @@ export const auth = getAuth();
 //A reference to our firestore (database).
 export const db = getFirestore();
 
-// Function for handling the shop data and adding it to the firebase.
-export const addCollectionAndDocuments = async (
-  // Key is database Name
-  collectionKey,
-  objectsToAdd
-) => {
-  // collection is the table we want to add, collectionKey is its name.
-  const collectionRef = collection(db, collectionKey);
-
-  // writeBatch is used for performing multiple writes in one single operation, in our case we are adding multiple objects to the collection.
-  const batch = writeBatch(db);
-
-  objectsToAdd.forEach((object) => {
-    // making a reference to the document and giving it the collection we want to add.
-    const docRef = doc(collectionRef, object.title.toLowerCase());
-    // writes to the document.
-    batch.set(docRef, object);
-  });
-
-  // commits the batch.
-  await batch.commit();
-  console.log("done");
-};
-
-export const getCars = async () => {
-  const collectionRef = collection(db, "cars");
-  const q = query(collectionRef);
-
-  // get a snapshot of the data.
-  const querySnapshot = await getDocs(q);
-  // returns an array of the data
-  const carsMap = querySnapshot.docs.reduce((acc, docSnapshot) => {
-    const { title, cars } = docSnapshot.data();
-    acc[title.toLowerCase()] = cars;
-    return acc;
-  }, {});
-
-  return carsMap;
-};
-
 export const signInWithGooglePopup = () => {
   return signInWithPopup(auth, googleProvider);
 };
@@ -110,7 +70,7 @@ export const signOutUser = async () => {
   await signOut(auth);
 };
 
-//The OnAuthStateChanged functions works as a Listener/Observer for all the changes made to the auth.
+//The OnAuthStateChanged functions as a Listener/Observer for all the changes made to the auth.
 //Without it, we'll have to call "setCurrentUser" in the signIn, signUp and NavBar Components to update the "currentUser" value.
 //The Auth Signleton that we instantiated is keeping track of the "user" value, and it even persists between refreshes of the page and onAuthStateChanged keeps track of it.
 export const onAuthStateChangedListener = (callback) => {
@@ -124,7 +84,7 @@ export const createUserDocumentFromAuth = async (userAuth, additionalInformation
 
   //The document reference (the firestore reference, the table, the user id)
   const userDocRef = doc(db, "users", userAuth.uid);
-  //console.log(userDocRef);
+  console.log(userDocRef);
 
   //Getting a snapshot "data" of the document reference. This gives the same data that the doc reference returns,
   //but it creates the data in a special object which we can perform operations on like "exists();" to check if the user is already in the database.
@@ -135,7 +95,7 @@ export const createUserDocumentFromAuth = async (userAuth, additionalInformation
   if (!userSnapShot.exists()) {
     const { displayName, email } = userAuth;
     const createdAt = new Date();
-    
+
     try {
       await setDoc(userDocRef, {
         displayName,
