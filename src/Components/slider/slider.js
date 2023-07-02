@@ -13,7 +13,7 @@ const SliderItems = (props) => {
 
   return (
     <>
-      <div className=" m-2">
+      <div className=" m-2 ">
         <Swiper
           modules={[Navigation]}
           navigation
@@ -45,7 +45,7 @@ const SliderItems = (props) => {
         >
           {cars.map((car) => (
             <SwiperSlide>
-              <SliderCard key={car.id} car={car}></SliderCard>
+              <SliderCard key={car.id} car={car}  ></SliderCard>
             </SwiperSlide>
           ))}
         </Swiper>

@@ -6,7 +6,7 @@ const SliderCard = (props) => {
 
   return (
     <>
-      <Card>
+      <Card id="theme" >
         <Card.Img
           variant="top"
           id="imagee"

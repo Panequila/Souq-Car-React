@@ -6,7 +6,10 @@
   display: none;
   
 }
-
+.theme{
+  background-color: var(--card-color);
+  color: var(--font-color);  
+}
 @media (max-width: 991px) {
   .display {
     display: none;
