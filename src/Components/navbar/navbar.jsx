@@ -13,9 +13,9 @@ export default function NavigationBar(props) {
   var { language, setLanguage } = useContext(languageContext);
 
   var localTheme = localStorage.getItem("theme");
-  console.log(localTheme);
+  //console.log(localTheme);
   var [theme, setTheme] = useState(localTheme ? localTheme : "light");
-  console.log(theme);
+  //console.log(theme);
   document.querySelector("body").setAttribute("data-theme", theme);
   localStorage.setItem("theme", theme);
 

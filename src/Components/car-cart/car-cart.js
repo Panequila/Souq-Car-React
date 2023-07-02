@@ -5,7 +5,6 @@ function CarCart(props) {
   return (
     <>
       <div className=" mb-3 border-0 rounded cont me-2">
-        
         <div className="row g-0 scale">
           <div className="col-lg-3">
             <img
@@ -19,15 +18,10 @@ function CarCart(props) {
 
           <div className="col-lg-9 p-3 ">
             <div className="card-body ">
-            <h5 className="card-title"> {car.name} </h5>
+              <h5 className="card-title"> {car.name} </h5>
               <div className="row " style={{ justifyContent: "space-between" }}>
                 <div className="col-3">
-                  <img
-                    className="w-75"
-                    src="https://souq.car/storage/car_makers/14.jpg"
-                    alt=""
-                  />
-                
+                  <img className="w-75" src="https://souq.car/storage/car_makers/14.jpg" alt="" />
                 </div>
                 <p className="col-6" style={{ textAlign: "end" }}>
                   قبل يوم
@@ -43,9 +37,7 @@ function CarCart(props) {
                 </div>
                 <div className="col">
                   <i className="fa-regular fa-calendar-days"></i>
-                  <span style={{ margin: "8px" }}>
-                    سنه التصنيع {car.manufactureDate}
-                  </span>
+                  <span style={{ margin: "8px" }}>سنه التصنيع {car.manufactureDate}</span>
                   <h6>{car.manufactureDate}</h6>
                 </div>
                 <div className="col">
@@ -72,24 +64,16 @@ function CarCart(props) {
                   </div>
                 </div>
                 <div className="col-6" style={{ textAlign: "end" }}>
-                  <span
-                    className="fa-regular fa-heart"
-                    style={{ alignItems: "end" }}
-                  ></span>
+                  <span className="fa-regular fa-heart" style={{ alignItems: "end" }}></span>
                   <span className="display" style={{ margin: "8px" }}>
                     حفظ الاعلان
                   </span>
                 </div>
               </div>
             </div>
-          
-          
-            
           </div>
           {/* <div className="test "></div> */}
-        </div> 
-        
-        
+        </div>
       </div>
     </>
   );

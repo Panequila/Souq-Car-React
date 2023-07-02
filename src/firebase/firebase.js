@@ -25,7 +25,7 @@ const firebaseConfig = {
   projectId: "souq-car-8d715",
   storageBucket: "souq-car-8d715.appspot.com",
   messagingSenderId: "917307360315",
-  appId: "1:917307360315:web:60ca90bf11b3816ea4c81e"
+  appId: "1:917307360315:web:60ca90bf11b3816ea4c81e",
 };
 
 // Initialize Firebase and create an instance of it and connecting it to our website.
@@ -45,7 +45,7 @@ googleProvider.setCustomParameters({
 export const auth = getAuth();
 
 //A reference to our firestore (database).
-export const db = getFirestore(); 
+export const db = getFirestore();
 
 export const signInWithGooglePopup = () => {
   return signInWithPopup(auth, googleProvider);
@@ -113,6 +113,7 @@ export const createUserDocumentFromAuth = async (userAuth, additionalInformation
   return userDocRef;
 };
 
+// Firebase function to get the list of cars for sale from the firestore
 export const getCars = async () => {
   const collectionRef = collection(db, "cars");
   const q = query(collectionRef);
@@ -127,4 +128,28 @@ export const getCars = async () => {
   }, {});
 
   return carsMap;
+};
+
+// Function for handling the cars data and adding it to the firebase.
+export const addCollectionAndDocuments = async (
+  // Key is database Name
+  collectionKey,
+  objectsToAdd
+) => {
+  // collection is the table we want to add, collectionKey is its name.
+  const collectionRef = collection(db, collectionKey);
+
+  // writeBatch is used for performing multiple writes in one single operation, in our case we are adding multiple objects to the collection.
+  const batch = writeBatch(db);
+
+  objectsToAdd.forEach((object) => {
+    // making a reference to the document and giving it the collection we want to add.
+    const docRef = doc(collectionRef, object.title.toLowerCase());
+    // writes to the document.
+    batch.set(docRef, object);
+  });
+
+  // commits the batch.
+  await batch.commit();
+  console.log("done");
 };
