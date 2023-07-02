@@ -1,16 +1,25 @@
 import { Navbar, Nav } from "react-bootstrap";
 import { Link } from "react-router-dom";
+<<<<<<< HEAD:src/Components/navbar/navbar.js
 import { Fragment, useContext, useEffect,useState } from "react";
 import { signOutUser } from "../../firebase/firebase";
 import { UserContext } from "../../Contexts/users";
 import {languageContext} from '../../Contexts/language';
 import "./navbar.css";
 import strings from '../../localization/localization';
+=======
+import { Fragment, useContext, useEffect, useState } from "react";
+import { signOutUser } from "../../firebase/firebase";
+import { UserContext } from "../../Contexts/users";
+import { languageContext } from "../../Contexts/language";
+import "./navbar.css";
+import strings from "../../localization/localization";
+>>>>>>> 260ad69ab8cd174639900da372d109b30046f877:src/Components/navbar/navbar.jsx
 
 export default function NavigationBar(props) {
-  
   const { currentUser } = useContext(UserContext);
 
+<<<<<<< HEAD:src/Components/navbar/navbar.js
   var {language,setLanguage}=useContext(languageContext);
 
   var localTheme = localStorage.getItem("theme")
@@ -34,6 +43,27 @@ const toggelTheme = ()=>{
   
 }
 
+=======
+  var { language, setLanguage } = useContext(languageContext);
+
+  var localTheme = localStorage.getItem("theme");
+  console.log(localTheme);
+  var [theme, setTheme] = useState(localTheme ? localTheme : "light");
+  console.log(theme);
+  document.querySelector("body").setAttribute("data-theme", theme);
+  localStorage.setItem("theme", theme);
+
+  const toggelLang = () => {
+    language === "ar" ? setLanguage("en") : setLanguage("ar");
+  };
+
+  const toggelTheme = () => {
+    theme === "light" ? setTheme("dark") : setTheme("light");
+    document.querySelector("body").setAttribute("data-theme", theme);
+
+    console.log(theme);
+  };
+>>>>>>> 260ad69ab8cd174639900da372d109b30046f877:src/Components/navbar/navbar.jsx
 
   return (
     <>
@@ -61,6 +91,7 @@ const toggelTheme = ()=>{
             >
               <span className="navbar-toggler-icon"></span>
             </button>
+
             <div className="collapse navbar-collapse " id="navbarNavAltMarkup">
               <div className=" flex-fill justify-content-end ">
                 <Link as={Link} to="/MainPage" id="link" className="text-decoration-none fw-bolder  mx-3 " aria-current="page">
@@ -69,17 +100,14 @@ const toggelTheme = ()=>{
                 <Link as={Link} to="/SalePage" id="link" className="text-decoration-none fw-bolder  mx-3 " aria-current="page">
                   Buy Cars
                 </Link>
-                <Link as={Link} to="/login" id="link" className="text-decoration-none fw-bolder  mx-3 " aria-current="page">
-                  Sign In
-                </Link>
                 <Link>
                   {/* If there is a signed in user then render "SignOut", if not then render "SignIn". */}
                   {currentUser ? (
-                    <Link className="nav-link" onClick={signOutUser}>
+                    <Link className="text-decoration-none fw-bolder  mx-3 " aria-current="page" onClick={signOutUser}>
                       Sign Out
                     </Link>
                   ) : (
-                    <Link className="nav-link" to="/auth">
+                    <Link className="text-decoration-none fw-bolder  mx-3 " aria-current="page" to="/login">
                       Sign In
                     </Link>
                   )}
@@ -102,17 +130,40 @@ const toggelTheme = ()=>{
                 <a id="link" className="text-decoration-none fw-bolder text-black mx-3" href="#">
                   <i class="fa-regular fa-heart"></i>
                 </a>
+<<<<<<< HEAD:src/Components/navbar/navbar.js
                 <a id="link" className="text-decoration-none fw-bolder text-black mx-3" onClick={()=>{toggelTheme()}}>
                   <i class="fa-regular fa-moon"></i>
                 </a>
                 <a id="link" className="text-decoration-none fw-bolder text-black mx-3"  onClick={()=>{toggelLang()}}>
+=======
+                <a
+                  id="link"
+                  className="text-decoration-none fw-bolder text-black mx-3"
+                  onClick={() => {
+                    toggelTheme();
+                  }}
+                >
+                  <i class="fa-regular fa-moon"></i>
+                </a>
+                <a
+                  id="link"
+                  className="text-decoration-none fw-bolder text-black mx-3"
+                  onClick={() => {
+                    toggelLang();
+                  }}
+                >
+>>>>>>> 260ad69ab8cd174639900da372d109b30046f877:src/Components/navbar/navbar.jsx
                   <i class="fa-solid fa-earth-americas"></i>
                 </a>
               </div>
               <button id="btnn">+ أضف اعلان</button>
+<<<<<<< HEAD:src/Components/navbar/navbar.js
               <div>
               {strings.how}
   </div>
+=======
+              <div>{strings.how}</div>
+>>>>>>> 260ad69ab8cd174639900da372d109b30046f877:src/Components/navbar/navbar.jsx
             </div>
           </div>
         </nav>

@@ -4,11 +4,17 @@ import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 import "./car-card.css";
 import Button from "react-bootstrap/Button";
+<<<<<<< HEAD
 import strings from "../../localization/localization";
+=======
+import strings from '../../localization/localization';
+>>>>>>> 260ad69ab8cd174639900da372d109b30046f877
 
 const CarCard = () => {
+
   return (
     <>
+<<<<<<< HEAD
       <div>
         <Row xs={1} md={2}>
           <Col >
@@ -16,6 +22,13 @@ const CarCard = () => {
           <p className="textCard">
               {strings.lookingForABuyerForYourCar}
               <br></br>
+=======
+      <Container>
+        <Row>
+          <Col className="autoNews m-3 imgBackGroundOne">
+            <p className="textCard">
+            {strings.how}
+>>>>>>> 260ad69ab8cd174639900da372d109b30046f877
               <Button variant="outline-warning">
                 <span className="m-2 " style={{fontSize:"20px"}}>
                   {strings.sellMyCar} <i className="fa-solid fa-plus "></i>{" "}

@@ -1,5 +1,25 @@
 .cont{
     background-color: var(--card-color);
     color: var(--font-color); 
+<<<<<<< HEAD
     cursor: pointer  
 }
+=======
+    cursor: pointer;  
+   
+}
+img{
+    padding: absolute;
+    z-index: 5;
+}
+
+.scale:hover{
+    transform: scale(1.01);
+  }
+
+ .test{
+    transition: all 1s linear;
+ 
+    border-bottom: 2px solid blue;
+ } 
+>>>>>>> 260ad69ab8cd174639900da372d109b30046f877

@@ -5,7 +5,9 @@ import CarSwiper from "../Components/car-swiper/car-swiper";
 import NavigationBar from "../Components/navbar/navbar";
 import './main-page.css';
 
+
 const MainPage = () => {
+<<<<<<< HEAD
   // const carBrand = [
   //   { id: 1, name: "Audi", imgUrl: "https://souq.car/storage/car_makers/22.jpg" },
   //   { id: 1, name: "Audi", imgUrl: "https://souq.car/storage/car_makers/22.jpg" },
@@ -31,6 +33,33 @@ const MainPage = () => {
   //   { id: 13 },
   // ];
 
+=======
+ 
+  const carBrand = [
+    { id: 1, name: "Audi", imgUrl: "https://souq.car/storage/car_makers/22.jpg" },
+    { id: 1, name: "Audi", imgUrl: "https://souq.car/storage/car_makers/22.jpg" },
+    { id: 1, name: "Audi", imgUrl: "https://souq.car/storage/car_makers/22.jpg" },
+    { id: 1, name: "Audi", imgUrl: "https://souq.car/storage/car_makers/22.jpg" },
+    { id: 1, name: "Audi", imgUrl: "https://souq.car/storage/car_makers/22.jpg" },
+    { id: 1, name: "Audi", imgUrl: "https://souq.car/storage/car_makers/22.jpg" },
+    { id: 1, name: "Audi", imgUrl: "https://souq.car/storage/car_makers/22.jpg" },
+  ];
+  const carTypes = [
+    { id: 1, name: "Sedan", imgUrl: "https://souq.car/storage/car_bodies/KhIZBFI6HuROkDGKh3Rw6pkZcvOoyg2o7pyCG5Bf.png" },
+    { id: 2 },
+    { id: 3 },
+    { id: 4 },
+    { id: 5 },
+    { id: 6 },
+    { id: 7 },
+    { id: 8 },
+    { id: 9 },
+    { id: 10 },
+    { id: 11 },
+    { id: 12 },
+    { id: 13 },
+  ];
+>>>>>>> 260ad69ab8cd174639900da372d109b30046f877
   return (
     <>
   

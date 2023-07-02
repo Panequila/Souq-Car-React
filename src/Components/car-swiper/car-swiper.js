@@ -8,13 +8,14 @@ import "swiper/css/scrollbar";
 
 import CarSwiperChild from "../car-swiper-child/car-brand-swiper-child";
 
+
 const CarSwiper = (props) => {
   const cars = props.car;
-
+ 
   return (
     <>
       <div className="swiperContainer">
-        <div style={{ fontSize: 20, marginBottom: 7, fontWeight: "bold" }}>بحث بماركات السيارات</div>
+        <div style={{ fontSize: 20, marginBottom: 7, fontWeight: "bold" }}></div>
         <Swiper
           modules={[Navigation]}
           navigation

@@ -9,7 +9,7 @@ function ViewNav(props) {
             <div className="row m-2">
               <div className="col-lg-6" style={{alignSelf: "center"}}>
                 <div className="row">
-                  <i className="fa-solid fa-car mb-1 col "></i>
+                  <i className="fa-solid fa-car mb-1 col text-primary "></i>
                   <div
                     className="col-sm-4 col-12 mb-2  filter "
                     style={{textAlign:"center" }}
@@ -20,7 +20,7 @@ function ViewNav(props) {
                         className="fa-solid fa-filter col"
                         style={{textAlign:"end"}}
                       ></i>
-                      <span className="col" style={{textAlign: 'start'}}>فلتره</span>
+                      <span className="col" style={{textAlign: 'start'}}>{strings.filter}</span>
                     </div>
                     </div>
                   </div>

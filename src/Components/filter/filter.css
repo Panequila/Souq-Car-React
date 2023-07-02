@@ -33,11 +33,26 @@ input:checked  {
 }
 
 .checkbox-container-active{
-    border-color: rgb(0, 0, 255)  
+    border: 2px solid rgb(0, 0, 255) ;
+    border-radius: 5px; 
+    padding: 1px;
 }
 
 .input-color{
 background: rgb(0, 0, 255 , 0.4);
 }
 
+.input-pos{
+    position: absolute;
+   width: 15px;
+   height: 15px;
+    /* clip-path: circle(50% at 50% 50%); */ 
+}
+
+.color{
+    border-radius: 50%;
+    height: 35px;
+    width: 35px;
+    /* margin: 10px; */
+}
 
