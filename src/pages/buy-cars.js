@@ -50,7 +50,7 @@ function SalePage(props) {
 
   return (
     <>
-      <div className="row bg-light">
+      <div className="row bg-dark">
         {/* <SliderItems cart={<SliderCard />} /> */}
         <SliderItems cars={cars} />
 

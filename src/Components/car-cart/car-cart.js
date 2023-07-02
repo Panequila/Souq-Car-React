@@ -1,10 +1,11 @@
+import'./car-cart.css'
 function CarCart(props) {
 
   const { car } = props;
 
   return (
     <>
-      <card className="card mb-3 border-0 ">
+      <div className=" mb-3 border-0 rounded cont">
         <div className="row g-0">
           <div className="col-lg-3">
             <img
@@ -75,7 +76,7 @@ function CarCart(props) {
             </div>
           </div>
         </div>
-      </card>
+      </div>
     </>
   );
 }

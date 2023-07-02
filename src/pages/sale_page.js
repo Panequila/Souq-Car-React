@@ -3,7 +3,7 @@ import Filter from "../Components/filter/filter";
 import ViewNav from "../Components/view_nav/view_nav";
 import SliderItems from "../Components/slider/slider";
 import NavigationBar from "../Components/navbar/navbar";
-
+import './sale_page.css'
 function SalePage(props) {
   const cars = [
     {
@@ -74,7 +74,7 @@ function SalePage(props) {
 
   return (
     <>
-      <div className="row bg-light">
+      <div className="row container2 ">
         {/* <SliderItems cart={<SliderCard />} /> */}
         <SliderItems cars={cars} />
 

@@ -1,5 +1,6 @@
 import { useState } from "react";
 import "./filter.css";
+import strings from '../../localization/localization';
 function Filter(props) {
   const [place, setPlace] = useState(false);
   const [fuel, setFuel] = useState(false);
@@ -10,51 +11,11 @@ function Filter(props) {
   const [feature, setFeature] = useState(false);
   const [price, setPrice] = useState(false);
   const [year, setYear] = useState(false);
-
-  const fuelList = ["بنزين", "ديزيل(سولار)", "كهرباء", "الغاز الطبيعى", "أخرى"];
-  const controlList = ["أوتوماتيك", "يدوى", "cvt"];
-  const statusList = ["جديد", " كسر زيرو", "مستعمل", "خرده"];
-  const engineList = [
-    "cc 1-999",
-    "cc 1000-1399",
-    "cc 1400-1599",
-    "cc 1600",
-    "cc 1601-2000",
-    "cc 2001-2800",
-    "cc 2800-7500",
-    "cc 4000",
-    "cc 3000",
-    "cc 5700",
-    "cc 4400",
-    "miles 350",
-  ];
-  const featureList = [
-    "نطام فرامل ABS",
-    "كاميرا خلفية",
-    "شاشه تعمل باللمس",
-    "مثبت سرعه",
-    "حساس ركن",
-    "EBD",
-    "اطارات خاصه",
-    "تنيه/نضام مضاد للسرقة",
-    "وسائد هوائيه",
-    "مرايا كهربائيه",
-    "زجاج كهربائى",
-    "مقاعد جلد",
-    "شاحن يو اس بس",
-    "مصابيح ضبابيه",
-    "باور ستيرينج",
-    "بلوتوث",
-    "مدخل aux",
-    "قفل مركزى",
-    "تكييف",
-    "راديو اف ام",
-  ];
   const yearList = [];
   for (let year = 2024; year >= 1968; year--) {
     yearList.push(year);
   }
-  console.log(yearList);
+  
   function active(el) {
     console.log(el);
     var element = document.getElementById(el);
@@ -62,19 +23,19 @@ function Filter(props) {
   }
   return (
     <>
-      <aside className="col-3  display">
+      <aside className="col-3  display ">
         <div
-          className="card p-2 me-2 w-100 border-0 "
-          style={{ alignItems: "center" }}
+          className=" p-3 me-2 w-100 border-0 theme "
+          style={{ textAlign: "center", }}
         >
-          <p>كلمات مفتاحيه-رقم الاعلان</p>
+          <p>{strings.Keywords}</p>
           <input
-            style={{ width: "80%", backgroundColor: "rgb(206, 224, 248)" }}
+            style={{display: "inline-block", width: "80%" }}
           />
         </div>
         <div>
           <div
-            className="w-100 mt-3 d-flex me-2  bg-white rounded"
+            className="w-100 mt-3 d-flex me-2   rounded theme"
             onClick={() => setPlace(place ? false : true)}
           >
             <i
@@ -86,61 +47,54 @@ function Filter(props) {
 
             <div className="d-flex w-100 justify-content-between align-items-center">
               <div className={place ? "active" : ""}>
-                <div className="me-2">الموقع</div>
-                <div className="me-2">مصر</div>
+                <div className="me-2 ms-2">{strings.location}</div>
+                <div className="me-2 ms-2">{strings.egypt}</div>
               </div>
               <i
                 className={
                   place
-                    ? "fa-solid fa-minus m-2 ps-2 text-primary"
-                    : "fa-regular fa-plus m-2 ps-2"
+                    ? "fa-solid fa-minus m-2 ps-2 pe-2 text-primary"
+                    : "fa-regular fa-plus m-2 ps-2 pe-2"
                 }
               ></i>
             </div>
           </div>
           {place && (
-            <div className="p-4 me-2 w-100 bg-white  ">
-              <div style={{ textAlign: "center" }}>
-                <select
-                  name=""
-                  id=""
-                  className="w-100 border-0 p-2"
-                  style={{ background: "rgb(206, 224, 248)" }}
-                >
-                  <option value="">الجميع</option>
-                  <option value="">القاهره</option>
-                  <option value="">الجيزه</option>
-                  <option value="">الاسكنداريه</option>
-                  <option value="audi">بنى سويف</option>
-                </select>
-              </div>
-            </div>
+            <div className="p-4 me-2 w-100  d-flex justify-content-center theme">
+            <select className="w-100 border-0 p-2"
+             style={{ background: "rgb(206, 224, 248)" }}
+            >
+              {strings.plases.map((item) => (
+                <option value="">{item}</option>
+              ))}
+            </select>
+          </div>
           )}
 
-          <div className=" w-100 mt-3 d-flex me-2 bg-white rounded ">
+          <div className=" w-100 mt-3 d-flex me-2 rounded theme">
             <i
               className={`fa-solid fa-car-on iconfont icon
               }`}
             ></i>
 
             <div className="d-flex w-100 justify-content-between align-items-center ">
-              <div className="  me-2">مصنع السياره</div>
+              <div className="  me-2 ms-2">{strings.carMaker}</div>
 
-              <i className="fa-regular fa-plus m-2 ps-2 "></i>
+              <i className="fa-regular fa-plus m-2 ps-2 pe-2"></i>
             </div>
           </div>
-          <div className="w-100 mt-3 d-flex me-2 bg-white rounded">
+          <div className="w-100 mt-3 d-flex me-2 rounded theme">
             <div>
               <i className="fa-solid fa-car-side icon"></i>
             </div>
             <div className="d-flex w-100 justify-content-between align-items-center ">
-              <div className="  me-2  ">هيكل السياره</div>
-              <i className="fa-regular fa-plus m-2 ps-2"></i>
+              <div className="  me-2 ms-2 ">{strings.carBody}</div>
+              <i className="fa-regular fa-plus m-2 ps-2 pe-2"></i>
             </div>
           </div>
 
           <div
-            className="w-100 mt-3 d-flex me-2 bg-white rounded "
+            className="w-100 mt-3 d-flex me-2 rounded theme"
             onClick={() => setFuel(fuel ? false : true)}
           >
             <i
@@ -150,20 +104,20 @@ function Filter(props) {
             ></i>
 
             <div className="d-flex w-100 justify-content-between align-items-center ">
-              <div className={`me-2 ${fuel ? "active" : ""}`}>نوع الوقود</div>
+              <div className={`me-2 ms-2 ${fuel ? "active" : ""}`}>{strings.carFuel}</div>
 
               <i
                 className={
                   fuel
-                    ? "fa-solid fa-minus m-2 ps-2 text-primary"
-                    : "fa-regular fa-plus m-2 ps-2"
+                    ? "fa-solid fa-minus m-2 ps-2 pe-2 text-primary"
+                    : "fa-regular fa-plus m-2 ps-2 pe-2"
                 }
               ></i>
             </div>
           </div>
           {fuel && (
-            <div className=" p-3 me-2 w-100 bg-white ">
-              {fuelList.map((item) => (
+            <div className=" p-3 me-2 w-100 theme ">
+              {strings.carFuelList.map((item) => (
                 <label
                   className="d-inline-block checkbox-container  me-2 mt-1"
                   id={item}
@@ -181,7 +135,7 @@ function Filter(props) {
             </div>
           )}
           <div
-            className="w-100 mt-3 d-flex me-2 bg-white rounded"
+            className="w-100 mt-3 d-flex me-2 rounded theme"
             onClick={() => setControl(control ? false : true)}
           >
             <i
@@ -190,22 +144,22 @@ function Filter(props) {
             ></i>
 
             <div className="d-flex w-100 justify-content-between align-items-center">
-              <div className={`me-2 ${control ? "active" : ""}`}>
-                ناقل الحركه
+              <div className={`me-2 ms-2 ${control ? "active" : ""}`}>
+              {strings.carTransmission}
               </div>
 
               <i
                 className={
                   control
-                    ? "fa-solid fa-minus m-2 ps-2 text-primary"
-                    : "fa-regular fa-plus m-2 ps-2"
+                    ? "fa-solid fa-minus m-2 ps-2 pe-2 text-primary"
+                    : "fa-regular fa-plus m-2 ps-2 pe-2"
                 }
               ></i>
             </div>
           </div>
           {control && (
-            <div className=" p-3 me-2 w-100 bg-white ">
-              {controlList.map((item) => (
+            <div className=" p-3 me-2 w-100 theme ">
+              {strings.carTransmissionList.map((item) => (
                 <label
                   className="d-inline-block checkbox-container  me-2 mt-1"
                   id={item}
@@ -222,7 +176,7 @@ function Filter(props) {
               ))}
             </div>
           )}
-          <div className="w-100 mt-3 d-flex me-2 bg-white rounded">
+          <div className="w-100 mt-3 d-flex me-2 rounded theme">
             <i
               style={{
                 padding: "11px",
@@ -231,14 +185,14 @@ function Filter(props) {
             ></i>
 
             <div className="d-flex w-100 justify-content-between align-items-center">
-              <div className="  me-2 ">اللون</div>
+              <div className="  me-2 ms-2">{strings.color}</div>
 
-              <i className="fa-regular fa-plus m-2 ps-2"></i>
+              <i className="fa-regular fa-plus m-2 ps-2 pe-2"></i>
             </div>
           </div>
 
           <div
-            className="w-100 mt-3 d-flex me-2 bg-white rounded"
+            className="w-100 mt-3 d-flex me-2 theme rounded"
             onClick={() => setDistance(distance ? false : true)}
           >
             <i
@@ -248,23 +202,23 @@ function Filter(props) {
             ></i>
 
             <div className="d-flex w-100 justify-content-between align-items-center">
-              <div className={`${distance ? "active" : ""} , me-2`}>
-                المسافه المقطوعه
+              <div className={`${distance ? "active" : ""} , me-2 ms-2`}>
+             {strings.kilometerage}
               </div>
 
               <i
                 className={
                   distance
-                    ? "fa-solid fa-minus m-2 ps-2 text-primary"
-                    : "fa-regular fa-plus m-2 ps-2"
+                    ? "fa-solid fa-minus m-2 ps-2 pe-2 text-primary"
+                    : "fa-regular fa-plus m-2 ps-2 pe-2"
                 }
               ></i>
             </div>
           </div>
           {distance && (
-            <div className="p-3 me-2 w-100 bg-white">
+            <div className="p-3 me-2 w-100 theme">
               <div className="ps-4 pe-4">
-                <label className="mb-3 f-seminormal">من</label>
+                <label className="mb-3 f-seminormal">{strings.from}</label>
                 <div className="input-group ">
                   <input
                     className="form-control grey only-numbers"
@@ -272,13 +226,13 @@ function Filter(props) {
                     pattern="[0-9]*"
                     inputmode="numeric"
                     name="kilometerage_from"
-                    placeholder="مثال: 150"
+                    placeholder="مثال: 150" 
                     value=""
                   />
-                  <span className="input-group-text">كم</span>
+                  <span className="input-group-text">{strings.km}</span>
                 </div>
 
-                <label className="mb-3 mt-3 f-seminormal">الى</label>
+                <label className="mb-3 mt-3 f-seminormal">{strings.to}</label>
                 <div className="input-group ">
                   <input
                     className="form-control grey only-numbers"
@@ -289,13 +243,13 @@ function Filter(props) {
                     placeholder="مثال: 180"
                     value=""
                   />
-                  <span className="input-group-text">كم</span>
+                  <span className="input-group-text">{strings.km}</span>
                 </div>
               </div>
             </div>
           )}
           <div
-            className="w-100 mt-3 d-flex me-2 bg-white rounded"
+            className="w-100 mt-3 d-flex me-2 theme rounded"
             onClick={() => setStatus(status ? false : true)}
           >
             <i
@@ -305,22 +259,21 @@ function Filter(props) {
             ></i>
 
             <div className="d-flex w-100 justify-content-between align-items-center">
-              <div className={`me-2 ${status ? "active" : ""}`}>
-                حاله السياره
-              </div>
+              <div className={`me-2 ${status ? "active" : ""} ms-2 me-2`}>
+              {strings.carCondition}              </div>
 
               <i
                 className={
                   status
-                    ? "fa-solid fa-minus m-2 ps-2 text-primary"
-                    : "fa-regular fa-plus m-2 ps-2"
+                    ? "fa-solid fa-minus m-2 ps-2 pe-2 text-primary"
+                    : "fa-regular fa-plus m-2 ps-2 pe-2"
                 }
               ></i>
             </div>
           </div>
           {status && (
-            <div className=" p-3 me-2 w-100 bg-white ">
-              {statusList.map((item) => (
+            <div className=" p-3 me-2 w-100 theme ">
+              {strings.carConditionList.map((item) => (
                 <label
                   className="d-inline-block checkbox-container  me-2 mt-1"
                   id={item}
@@ -338,7 +291,7 @@ function Filter(props) {
             </div>
           )}
           <div
-            className="w-100 mt-3 d-flex me-2 bg-white rounded"
+            className="w-100 mt-3 d-flex me-2 theme rounded"
             onClick={() => setEngine(engine ? false : true)}
           >
             <i
@@ -348,22 +301,22 @@ function Filter(props) {
             ></i>
 
             <div className="d-flex w-100 justify-content-between align-items-center">
-              <div className={`me-2 + ${engine ? "active" : ""}`}>
-                سعه المحرك
+              <div className={`me-2 ms-2 ${engine ? "active" : ""}`}>
+              {strings.engine} 
               </div>
 
               <i
                 className={
                   engine
-                    ? "fa-solid fa-minus m-2 ps-2 text-primary"
-                    : "fa-regular fa-plus m-2 ps-2"
+                    ? "fa-solid fa-minus m-2 ps-2 pe-2 text-primary"
+                    : "fa-regular fa-plus m-2 ps-2 pe-2"
                 }
               ></i>
             </div>
           </div>
           {engine && (
-            <div className=" p-3 me-2 w-100 bg-white ">
-              {engineList.map((item) => (
+            <div className=" p-3 me-2 w-100 theme">
+              {strings.engineList.map((item) => (
                 <label
                   className="d-inline-block checkbox-container  me-2 mt-1"
                   id={item}
@@ -381,7 +334,7 @@ function Filter(props) {
             </div>
           )}
           <div
-            className="w-100 mt-3 d-flex me-2 bg-white rounded"
+            className="w-100 mt-3 d-flex me-2 theme rounded"
             onClick={() => setYear(year ? false : true)}
           >
             <i
@@ -391,21 +344,20 @@ function Filter(props) {
             ></i>
 
             <div className="d-flex w-100 justify-content-between align-items-center">
-              <div className={`me-2 ${year ? "active" : ""} `}>سنه التصنيع</div>
+              <div className={`me-2 ms-2 ${year ? "active" : ""} `}>{strings.productionYear} </div>
 
               <i
                 className={
-                  engine
-                    ? "fa-solid fa-minus m-2 ps-2 text-primary"
-                    : "fa-regular fa-plus m-2 ps-2"
+                  year
+                    ? "fa-solid fa-minus m-2 ps-2 pe-2 text-primary"
+                    : "fa-regular fa-plus m-2 pe-2 ps-2"
                 }
               ></i>
             </div>
           </div>
           {year && (
-            <div className="p-4 me-2 w-100 bg-white d-flex justify-content-center">
+            <div className="p-4 me-2 w-100  d-flex justify-content-center theme">
               <select className="w-100  p-2">
-                <option value="">الجميع</option>
                 {yearList.map((item) => (
                   <option value="">{item}</option>
                 ))}
@@ -413,7 +365,7 @@ function Filter(props) {
             </div>
           )}
           <div
-            className="w-100 mt-3 d-flex me-2 bg-white rounded"
+            className="w-100 mt-3 d-flex me-2 theme rounded"
             onClick={() => setFeature(feature ? false : true)}
           >
             <i
@@ -423,22 +375,22 @@ function Filter(props) {
             ></i>
 
             <div className="d-flex w-100 justify-content-between align-items-center">
-              <div className={`me-2 ${feature ? "active" : ""} `}>
-                المميزات الاضافيه
+              <div className={`me-2 ms-2 ${feature ? "active" : ""} `}>
+              {strings.extraFeatures} 
               </div>
 
               <i
                 className={
                   feature
-                    ? "fa-solid fa-minus m-2 ps-2 text-primary"
-                    : "fa-regular fa-plus m-2 ps-2"
+                    ? "fa-solid fa-minus m-2 ps-2 pe-2 text-primary"
+                    : "fa-regular fa-plus m-2 pe-2 ps-2"
                 }
               ></i>
             </div>
           </div>
           {feature && (
-            <div className=" p-3 me-2 w-100 bg-white ">
-              {featureList.map((item) => (
+            <div className=" p-3 me-2 w-100 theme ">
+              {strings.extraFeaturesList.map((item) => (
                 <label
                   className="d-inline-block checkbox-container  me-2 mt-1"
                   id={item}
@@ -456,7 +408,7 @@ function Filter(props) {
             </div>
           )}
           <div
-            className="w-100 mt-3 d-flex me-2 bg-white rounded"
+            className="w-100 mt-3 d-flex me-2 theme rounded"
             onClick={() => setPrice(price ? false : true)}
           >
             <i
@@ -466,21 +418,21 @@ function Filter(props) {
             ></i>
 
             <div className="d-flex w-100 justify-content-between align-items-center">
-              <div className={`me-2 ${price ? "active" : ""} `}>السعر</div>
+              <div className={`me-2 ms-2 ${price ? "active" : ""} `}>{strings.price} </div>
 
               <i
                 className={
                   price
-                    ? "fa-solid fa-minus m-2 ps-2 text-primary"
-                    : "fa-regular fa-plus m-2 ps-2"
+                    ? "fa-solid fa-minus m-2 ps-2 pe-2 text-primary"
+                    : "fa-regular fa-plus m-2 ps-2 pe-2"
                 }
               ></i>
             </div>
           </div>
           {price && (
-            <div className="p-3 me-2 w-100 bg-white">
+            <div className="p-3 me-2 w-100 theme">
               <div className="ps-4 pe-4">
-                <label className="mb-3 f-seminormal">من</label>
+                <label className="mb-3 f-seminormal">{strings.from} </label>
                 <div className="input-group ">
                   <input
                     className="form-control grey only-numbers"
@@ -491,10 +443,10 @@ function Filter(props) {
                     placeholder="0"
                     value=""
                   />
-                  <span className="input-group-text">ج.م</span>
+                  <span className="input-group-text">{strings.EGP} </span>
                 </div>
 
-                <label className="mb-3 mt-3 f-seminormal">الى</label>
+                <label className="mb-3 mt-3 f-seminormal">{strings.to}</label>
                 <div className="input-group ">
                   <input
                     className=" form-control input"
@@ -505,7 +457,7 @@ function Filter(props) {
                     placeholder="0"
                     value=""
                   />
-                  <span className="input-group-text">ج.م</span>
+                  <span className="input-group-text">{strings.EGP}</span>
                 </div>
               </div>
             </div>
@@ -514,10 +466,10 @@ function Filter(props) {
             className="card text-bg-primary p-2 mt-3"
             style={{ textAlign: "center" }}
           >
-            البحث
+           {strings.search}
           </div>
-          <div className="card p-2 mt-2" style={{ textAlign: "center" }}>
-            البحث
+          <div className="rounded p-2 mt-2 theme" style={{ textAlign: "center" }}>
+          {strings.clear}
           </div>
         </div>
       </aside>
