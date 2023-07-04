@@ -7,6 +7,7 @@ import NavigationBar from "./Components/navbar/navbar";
 import Authentication from "./pages/authentication/authentication";
 import { LanguageProvider } from "./Contexts/language";
 import strings from "./localization/localization";
+import Footer from "./Components/footer/footer";
 
 function App() {
   var localLang = localStorage.getItem("lang");
@@ -17,7 +18,7 @@ function App() {
   return (
     <>
       <LanguageProvider value={{ language, setLanguage }}>
-        <div className="container-fluid" dir={`${language === "en" ? "ltr" : "rtl"}`}>
+        <div dir={`${language === "en" ? "ltr" : "rtl"}`}>
           <NavigationBar />
           <Routes>
             <Route path="/" element={<MainPage />} />
@@ -25,6 +26,7 @@ function App() {
             <Route path="/SalePage" element={<BuyCarsPage />} />
             <Route path="/login" element={<Authentication />} />
           </Routes>
+          <Footer />
         </div>
       </LanguageProvider>
     </>

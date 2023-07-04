@@ -2,7 +2,6 @@ import "./footer.css";
 export default function Footer(props) {
   return (
     <>
-      <br />
       <footer class="bg-dark text-center text-white">
         <div class="footer-container p-4">
           <section class="mb-4">

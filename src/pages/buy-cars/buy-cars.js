@@ -79,7 +79,7 @@ function BuyCarsPage(props) {
   ];
 
   // Get the cars context
-  const { carsMap } = useContext(CarContext);
+  const { filteredCars } = useContext(CarContext);
 
   var localLang = localStorage.getItem("lang");
 
@@ -110,7 +110,7 @@ function BuyCarsPage(props) {
         <div className="col-sm-12 col-lg-9">
           <ViewNav />
 
-          {carsMap.map((car) => (
+          {filteredCars.map((car) => (
             <CarCart key={car.id} car={car} />
           ))}
         </div>

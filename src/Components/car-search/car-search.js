@@ -4,9 +4,9 @@ import Carousel from "react-bootstrap/Carousel";
 import "./car-search.css";
 import { Button, Form } from "react-bootstrap";
 import Dropdown from "../drop-down/drop-down";
+import strings from "../../localization/localization";
 
 const CarSearch = () => {
-  
   const options = [
     { key: "1", value: " تويوتا" },
     { key: "2", value: " هوينداي" },
@@ -34,7 +34,7 @@ const CarSearch = () => {
 
   return (
     <>
-      <Container className="parentContainer">
+      <div className="parentContainer ">
         <Row className="my-3 carouselRow">
           <Col>
             <Carousel controls={false} indicators={false}>
@@ -55,62 +55,98 @@ const CarSearch = () => {
             </Carousel>
           </Col>
         </Row>
-        <Row className="mb-3 inputRow">
-          <Col>
-            <div className="titleOfInputs">
-              <i class="fa-solid fa-car "></i> <p className="me-2">ابحث عن سيارة</p>{" "}
-            </div>
+        <Row className="mb-3 inputRow justify-content-md-cente">
+          <Col xs={12} md={12}>
+            <Row>
+              <Col xs={5} md={3} className="titleOfInputs">
+                <i class="fa-solid fa-car "></i>{" "}
+                <p className="me-2">{strings.SearchForCar}</p>{" "}
+              </Col>
+            </Row>
             <div className=" divInput">
               <Row>
                 <Col className="mt-3">
                   {" "}
-                  <div className=" w-100 buttonClass">جديد</div>
+                  <div className=" w-100 buttonClass">{strings.new}</div>
                 </Col>
                 <Col className="mt-3">
-                  <div className=" w-100 buttonClass">كسر زيرو</div>
+                  <div className=" w-100 buttonClass">{strings.AlmostNew}</div>
                 </Col>
                 <Col className="mt-3">
-                  <div className=" w-100 buttonClass">مستعمل</div>
+                  <div className=" w-100 buttonClass">{strings.used}</div>
                 </Col>
               </Row>
               <Row className="my-3">
-                <Col>
-                  <div>
-                    <Dropdown options={options} placeHolder="المصنع" />
+                <Col xs={12} md={3}>
+                  <div className="mb-2">
+                    <Dropdown
+                      options={options}
+                      placeHolder={strings.carMarker}
+                    />
                   </div>
                 </Col>
-                <Col>
-                  <Dropdown options={options2} placeHolder="موديل السياره" />
+                <Col xs={12} md={3}>
+                  <div className="mb-2">
+                    <Dropdown
+                      options={options2}
+                      placeHolder={strings.carModel}
+                    />
+                  </div>
                 </Col>
-                <Col>
-                  <Dropdown options={options3} placeHolder="اختر المحافظة" />
+                <Col xs={12} md={3}>
+                  <div className="mb-2">
+                    <Dropdown
+                      options={options3}
+                      placeHolder={strings.selectGovernorate}
+                    />
+                  </div>
                 </Col>
-                <Col>
-                  <Dropdown options={options4} placeHolder="بيع و شراء السيارات " />
+                <Col xs={12} md={3}>
+                  <div className="mb-2">
+                    <Dropdown
+                      options={options4}
+                      placeHolder={strings.buyCars}
+                    />
+                  </div>
                 </Col>
               </Row>
-              <Row className="my-3 ">
+              <Row className="my-2">
                 <Col sm={4}>
                   <Form className="d-flex">
-                    <Form.Control type="search" placeholder="السعر الأعلى" className="me-2" aria-label="Search" />
+                    <Form.Control
+                      type="search"
+                      placeholder={strings.maxPrice}
+                      className="me-2"
+                      aria-label="Search"
+                    />
                   </Form>
                 </Col>
                 <Col sm={4}>
                   <Form className="d-flex">
-                    <Form.Control type="search" placeholder="السعر الأدنى" className="me-2" aria-label="Search" />
+                    <Form.Control
+                      type="search"
+                      placeholder={strings.lowestPrice}
+                      className="me-2"
+                      aria-label="Search"
+                    />
                   </Form>
                 </Col>
                 <Col sm={4}>
                   <Form className="d-flex">
-                    <Form.Control type="search" placeholder="Search" className="me-2" aria-label="Search" />
-                    <Button>Search</Button>
+                    <Form.Control
+                      type="search"
+                      placeholder="Search"
+                      className="me-2"
+                      aria-label="Search"
+                    />
+                    <Button>{strings.searchForACar}</Button>
                   </Form>
                 </Col>
               </Row>
             </div>
           </Col>
         </Row>
-      </Container>
+      </div>
     </>
   );
 };

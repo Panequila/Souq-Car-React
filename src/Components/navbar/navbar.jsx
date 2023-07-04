@@ -10,25 +10,29 @@ import strings from "../../localization/localization";
 export default function NavigationBar(props) {
   const { currentUser } = useContext(UserContext);
 
-  var { language, setLanguage } = useContext(languageContext);
 
-  var localTheme = localStorage.getItem("theme");
-  //console.log(localTheme);
-  var [theme, setTheme] = useState(localTheme ? localTheme : "light");
-  //console.log(theme);
-  document.querySelector("body").setAttribute("data-theme", theme);
-  localStorage.setItem("theme", theme);
+  var {language,setLanguage}=useContext(languageContext);
 
-  const toggelLang = () => {
-    language === "ar" ? setLanguage("en") : setLanguage("ar");
-  };
+  var localTheme = localStorage.getItem("theme")
+  console.log(localTheme);
+  var [theme,setTheme]=useState(localTheme?localTheme:"light");
+  console.log(theme);
+  document.querySelector("body").setAttribute("data-theme", theme)
+  localStorage.setItem("theme", theme)
 
-  const toggelTheme = () => {
-    theme === "light" ? setTheme("dark") : setTheme("light");
-    document.querySelector("body").setAttribute("data-theme", theme);
+const toggelLang = ()=>{
+  language==='ar'? setLanguage('en'): setLanguage('ar');
+}
 
-    console.log(theme);
-  };
+const toggelTheme = ()=>{
+ 
+  theme==='light'? setTheme('dark'): setTheme('light');
+  document.querySelector("body").setAttribute("data-theme", theme)
+  
+  console.log(theme); 
+
+  
+}
 
   return (
     <>

@@ -2,6 +2,27 @@ import LocalizedStrings from "react-localization";
 
 let strings = new LocalizedStrings({
   ar: {
+    // start home page
+    SearchForCar: "ابحث عن سيارة",
+    new: "جديد",
+    AlmostNew: "كسر زيرو",
+    used: "مستعمل",
+    carMarker: "المصنع",
+    carModel: " موديل السياره",
+    selectGovernorate: "اختر المحافظة",
+    buyCars: "بيع و شراء السيارات",
+    maxPrice: "السعر الأعلى",
+    lowestPrice: "السعر الأدنى",
+    searchForACar: "ابحث عن سيارة",
+    searchByCarBrands: "Search by car brands",
+    exploreSections: " استكشف الأقسام",
+    latestArticles: "أحدث المقالات",
+    allArticles: "كل المقالات",
+    lookingForABuyerForYourCar: "تبحث عن مشتري لسيارتك؟",
+    CarNewsInEgypt: "تريد معرفة أحدث اخبار السيارات في مصر؟",
+    carNews: "أخبار السيارات ",
+    sellMyCar: " بيع سيارتي ",
+    // end home page
     //  filter components
     Keywords: "كلمات مفتاحية - رقم الاعلان",
     location: "الموقع",
@@ -112,6 +133,28 @@ let strings = new LocalizedStrings({
     filter: "فلتره",
   },
   en: {
+    // start home page
+    SearchForCar: "Search for a car",
+    new: "New",
+    AlmostNew: "Almost New",
+    used: "Used",
+    carMarker: "Car Marker",
+    carModel: "Car Model",
+    selectGovernorate: "Select Governorate",
+    buyCars: "Buy Cars",
+    maxPrice: "Max Price",
+    lowestPrice: "Lowest Price",
+    searchForACar: "Search for a car",
+    advancedSearch: "Advanced Search",
+    searchByCarBrands: "Search by car brands",
+    exploreSections: "Explore Sections",
+    latestArticles: "Latest Articles",
+    allArticles: "all articles",
+    CarNewsInEgypt: "Want to know the latest car news in Egypt?",
+    carNews: "Car News",
+    sellMyCar: "Sell My Car",
+    lookingForABuyerForYourCar: "Looking for a buyer for your car?",
+    // end home page
     //  filter components
     Keywords: "Keywords - Ad No",
     location: "Location",
