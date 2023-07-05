@@ -7,7 +7,7 @@ function CarCart(props) {
     <>
       <div className=" mb-3 border-0 rounded cont">
         <div className="row g-0">
-          <div className="col-lg-3">
+          <div className="col-lg-2">
             <img
               width="100%"
               src="https://souq.car/storage/posts/ac641631dd2b43df9019e4a7771571a4_20230424052026_main_image.jpg"
@@ -16,7 +16,7 @@ function CarCart(props) {
               style={{ objectFit: "cover", height: "270px" }}
             />
           </div>
-          <div className="col-lg-9 p-3">
+          <div className="col-lg-10 p-3">
             <div className="row">
               <div className="col-6">
                 <div className="row" style={{ textAlign: "start" }}>

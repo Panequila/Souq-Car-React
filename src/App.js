@@ -20,7 +20,7 @@ function App() {
   return (
     <>
       <LanguageProvider value={{ language, setLanguage }}>
-        <div
+        <div 
       
           dir={`${language === "en" ? "ltr" : "rtl"}`}
         >

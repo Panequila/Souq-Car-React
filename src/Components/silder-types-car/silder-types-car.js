@@ -1,6 +1,5 @@
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Navigation } from "swiper";
-
 import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
@@ -10,11 +9,11 @@ import CardCarTypes from "../card-car-types/card-car-types";
 
 const SliderTypesItem = (props) => {
   const carTypes = props.carTypes;
-
+  const titleName=props.titleName;
   return (
     <>
-      <div className=" m-2">
-      <div style={{fontSize:20 ,marginBottom:7 ,fontWeight:"bold"}}>بحث  بأنواع السيارات </div>
+      <div className="my-3">
+      <div  className="brandText my-2"> {titleName} </div>
         <Swiper
           modules={[Navigation]}
           navigation
@@ -26,20 +25,20 @@ const SliderTypesItem = (props) => {
           grabCursor={true}
           breakpoints={{
             400: {
-              slidesPerView: 1,
+              slidesPerView: 2,
               spaceBetween: 1,
             },
             900: {
-              slidesPerView: 2,
+              slidesPerView: 3,
               spaceBetween: 1,
             },
 
             1000: {
-              slidesPerView: 4,
+              slidesPerView: 5,
               spaceBetween: 1,
             },
             1050: {
-              slidesPerView: 5,
+              slidesPerView: 7,
               spaceBetween: 1,
             },
           }}

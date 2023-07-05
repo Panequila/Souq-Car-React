@@ -18,7 +18,7 @@ const ExploreSection = () => {
           <div className="expioreCard m-2">
             <div className="exploreText ">
               <img src="https://souq.car/storage/post_types/1.jpg" className="w-50" alt="cardImge" />
-              <p className="mt-2"> بيع و شراء السيارات </p>
+              <p className="mt-2"> {strings.buyCars}</p>
             </div>
             </div>
           </Col>
@@ -26,7 +26,7 @@ const ExploreSection = () => {
           <div className="expioreCard m-2">
             <div className="exploreText ">
               <img src="https://souq.car/storage/post_types/4.jpg" className="w-50" alt="cardImge" />
-              <p className="mt-4"> تأجير السيارات </p>
+              <p className="mt-4"> {strings.carRental} </p>
             </div>
             </div>
           </Col>
@@ -34,7 +34,7 @@ const ExploreSection = () => {
           <div className="expioreCard m-2">
             <div className="exploreText ">
               <img src="https://souq.car/storage/post_types/2.jpg" className="w-50" alt="cardImge" />
-              <p className="mt-4"> مراكز الصيانة </p>
+              <p className="mt-4">  {strings.maintenanceCenters} </p>
             </div>
             </div>
           </Col>
@@ -42,7 +42,7 @@ const ExploreSection = () => {
             <div className="expioreCard m-2">
             <div className="exploreText">
               <img src="	https://souq.car/storage/post_types/3.jpg" className="w-50" alt="cardImge" />
-              <p className="mt-4"> قطع الغيار </p>
+              <p className="mt-4"> {strings.spareParts }</p>
             </div>
             </div>
           </Col>
@@ -50,7 +50,7 @@ const ExploreSection = () => {
           <div className="expioreCard m-2">
             <div className="exploreText ">
               <img src="	https://souq.car/storage/post_types/5.jpg" className="w-50" alt="cardImge" />
-              <p className="mt-4"> ونش إنقاذ </p>
+              <p className="mt-4">  {strings.rescueWinch} </p>
             </div>
             </div>
           </Col>
@@ -59,7 +59,7 @@ const ExploreSection = () => {
           <div className="exploreText ">
               <img src="https://souq.car/storage/post_types/6.jpg" className="w-50" alt="cardImge" />
 
-              <p className="mt-4"> اخبار السيارات </p>
+              <p className="mt-4">  {strings.carNews} </p>
             </div>
           </div>
           </Col>
