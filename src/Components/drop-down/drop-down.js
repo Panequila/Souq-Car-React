@@ -47,13 +47,13 @@ const Dropdown = ({ options, placeHolder = "" }) => {
           {
             <div className="dropdown-car-menu">
               {showMenu &&
-                options.map((option , index) => {
+                options.map((option) => {
                   return (
                     <div
                       onClick={() => {
                         onItemClick(option);
                       }}
-                      key={index}
+                      key={option.key}
                       className={`dropdown-item ${isSelected(option) && "selected"} `}
                     >
                       {option.value}

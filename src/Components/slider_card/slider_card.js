@@ -1,21 +1,58 @@
 import Card from "react-bootstrap/Card";
 import "./slider_cart.css";
-
+import { useEffect, useState,useContext } from "react";
+import {saveAddContext} from '../../Contexts/saveAdd'
+import strings from "../../localization/localization";
+import { Link } from "react-router-dom";
+import { useNavigate } from 'react-router-dom';
 const SliderCard = (props) => {
   const { car } = props;
+  const {saveAdd,setSaveAdd } = useContext(saveAddContext);
+  const[addId,setaddId]=useState([])
+  const navigate = useNavigate()
+ 
+  const goToDetails=(item)=>{
+      navigate('/details', {state:item})
+   }
+    
+  useEffect(()=>{
+    saveAdd&&setaddId(saveAdd.map((f)=>f.id))
+    
+    localStorage.setItem("saveAdd", JSON.stringify(saveAdd));
+  },[saveAdd])
 
+  function addAdd (obj) {
+    setSaveAdd(([ ...saveAdd, obj]))
+ 
+   }
+
+   const deleteAdd =(id)=>{
+    const list = saveAdd.filter(f => f.id !== id)
+    setSaveAdd(list)
+   }
+
+   function hanedlAddDelete(item){ 
+     var x = addId.includes(item.id)
+     if(x){
+       deleteAdd(item.id)
+     }else{
+       addAdd(item)
+     }
+   }
   return (
     <>
-      <Card id="theme">
-        <Card.Img 
+      <Card id="theme" >
+        <Card.Img
+        className='pointer'
           variant="top"
           id="imagee"
           style={{ objectFit: "cover" }}
-          src="https://souq.car/storage/posts/b4433133d4c34a31af2a4c7a905b1871_20230607021246_main_image.jpg"
+          src={car.imgUrl}
+          onClick={()=>{goToDetails(car)}}
         />
-        
-        <Card.Body >
-          <Card.Title> {car.name} </Card.Title>
+        <Card.Body>
+          <Card.Title className="textCardOverFlow" > {car.name} </Card.Title>
+          
           <Card.Text >
             <span>
               <i class="fa-solid fa-eye"></i> 233
@@ -27,20 +64,17 @@ const SliderCard = (props) => {
               <i class="fa-solid fa-clock" style={{ marginLeft: "5px" }}></i> قبل 3 أشهر
             </span>
             
-            <div className="d-flex justify-content-between mt-2">
-            <span>
-              <a href="">
-                <i class="fa-regular fa-heart p-1" ></i>
-              </a>
-              حفظ إلاعلان
+            <div className="d-flex justify-content-between mt-2 ">
+            <span className='pointer' onClick={()=>{hanedlAddDelete(car)}}>
+              
+                <i class={`fa-regular fa-heart p-1 ${addId.includes(car.id)?"text-danger":""}`} ></i>
+              
+               {addId.includes(car.id)?strings.removeAd:strings.saveAd}
             </span>
-            <span  >
-              <i class="fa-sharp fa-solid fa-share-nodes p-1" ></i>مشاركة
-            </span>
+         
             </div>
           </Card.Text>
         </Card.Body>
-        
       </Card>
     </>
   );

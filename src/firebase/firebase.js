@@ -47,8 +47,8 @@ export const auth = getAuth();
 //A reference to our firestore (database).
 export const db = getFirestore();
 
-export const signInWithGooglePopup = () => {
-  return signInWithPopup(auth, googleProvider);
+export const signInWithGooglePopup = async() => {
+  return await signInWithPopup(auth, googleProvider);
 };
 
 export const signInWithGoogleRedirect = () => {
@@ -122,8 +122,8 @@ export const getCars = async () => {
   const querySnapshot = await getDocs(q);
   // returns an array of the data
   const carsMap = querySnapshot.docs.reduce((acc, docSnapshot) => {
-    const { title, cars } = docSnapshot.data();
-    acc[title.toLowerCase()] = cars;
+    const { title, data } = docSnapshot.data();
+    acc[title.toLowerCase()] = data;
     return acc;
   }, {});
 

@@ -3,15 +3,13 @@
 }
 
 .icon{
-    background-color:var(--gray-color); 
+    background-color:var(--icon-color); 
     /* rgb(177, 177, 177); */
     padding: 10px;
     border-radius: 6px;
 }
 
-.iconfont{
-    font-size: 19px;
-}
+.iconfont{font-size: 19px;}
 
 input {display: none;}
 input:checked  {
@@ -20,7 +18,7 @@ input:checked  {
   }
 
   .theme{
-    background-color: var(--card-color);
+    background-color: var(--gray-color);
     color: var(--font-color);  
     cursor: pointer 
   }
@@ -35,7 +33,7 @@ input:checked  {
 .checkbox-container-active{
     border: 2px solid rgb(0, 0, 255) ;
     border-radius: 5px; 
-    padding: 1px;
+    
 }
 
 .input-color{
@@ -43,9 +41,10 @@ background: rgb(0, 0, 255 , 0.4);
 }
 
 .input-pos{
-    position: absolute;
+
    width: 15px;
    height: 15px;
+   padding: 1px;
     /* clip-path: circle(50% at 50% 50%); */ 
 }
 
@@ -55,4 +54,15 @@ background: rgb(0, 0, 255 , 0.4);
     width: 35px;
     /* margin: 10px; */
 }
+.cancelFiler{
+display: none;
+}
+@media (max-width: 991px) {
+    .cancelFiler{
+        display: flex;
+        justify-content: space-between;
+        margin-bottom: 5px;
+    }
+}
+
 

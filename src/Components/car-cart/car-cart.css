@@ -1,20 +1,15 @@
 .cont{
-    background-color: var(--card-color);
+    background-color: var(--gray-color);
     color: var(--font-color); 
-    cursor: pointer;  
-   
+     
 }
-img{
-    padding: absolute;
-    z-index: 5;
+.pointer{
+    cursor: pointer  
 }
-
-.scale:hover{
-    transform: scale(1.01);
+.textOverFlow{
+    overflow: hidden;
+   display: -webkit-box;
+   -webkit-line-clamp: 2; /* number of lines to show */
+           line-clamp: 2; 
+   -webkit-box-orient: vertical;
   }
-
- .test{
-    transition: all 1s linear;
- 
-    border-bottom: 2px solid blue;
- } 

@@ -1,78 +1,119 @@
-import { useState } from "react";
-import { signInAuthWithEmailAndPassword, signInWithGooglePopup } from "../../firebase/firebase";
-import FormInput from "../form-input/form-input.component";
+import { signInWithGooglePopup } from "../../firebase/firebase";
+
 import Button from "../button/button.component";
 import "./sign-in.scss";
-
-const defaultFormFields = {
-  email: "",
-  password: "",
-};
+import Card from "react-bootstrap/Card";
+import { Link, useNavigate } from "react-router-dom";
 
 const SignInForm = () => {
-  const [formFields, setFormFields] = useState(defaultFormFields);
-  const { email, password } = formFields;
-
-  //Getting the "setCurrentUser" function from our Context, to set the "userContext" to the Signed In User.
-  //const { setCurrentUser } = useContext(UserContext);
-
-  const resetFormFields = () => {
-    setFormFields(defaultFormFields);
-  };
+  const navigate = useNavigate();
 
   const signInWithGoogle = async () => {
-    await signInWithGooglePopup();
-    //setCurrentUser(user);
-  };
-
-  const handleSignUp = async (event) => {
-    //We are saying that we don't want any default behavior to take place, we are gonna handle the event.
-    event.preventDefault();
-
-    try {
-      const { user } = await signInAuthWithEmailAndPassword(email, password);
-      //Setting the "currentUser" object in our Context class to the signed in User.
-      //setCurrentUser(user);
-      resetFormFields();
-    } catch (error) {
-      switch (error.code) {
-        case "auth/wrong-password":
-          alert("incorrect password for email");
-          break;
-        case "auth/user-not-found":
-          alert("no user associated with this email");
-          break;
-        default:
-          console.log(error);
-      }
-    }
-  };
-
-  const handleChange = (event) => {
-    //the evnet.target gives us all of the things that are attacked to the Input.
-    const { name, value } = event.target;
-
-    //The Spread/Rest Operator (...) updates every value in the Form not just the changed ones.
-    setFormFields({ ...formFields, [name]: value });
+    await signInWithGooglePopup().then(() => navigate("/MainPage"));
   };
 
   return (
-    <div className="sign-in-container">
-      <h2>Already Have An Account?</h2>
-      <span>Sign in with your email and password</span>
-      <form onSubmit={handleSignUp}>
-        <FormInput label="Email" type="email" required onChange={handleChange} name="email" value={email}></FormInput>
+    <>
+      <Card
+        className="shadow rounded-4 mt-5"
+        style={{ border: "1px solid white" }}
+      >
+        <Card.Body>
+          <Link
+            className="login-logo d-inline-block mb-5 d-flex justify-content-end"
+            href="https://souq.car/ar"
+            title="سوق كار"
+          >
+            <img
+              className="light w-100 animate__animated animate__fadeInRight duration_2s img-fluid w-auto"
+              src="https://souq.car/imgs/logo-2.png"
+              style={{}}
+              alt="سوق كار"
+            ></img>
+          </Link>
+          <div className="sign-in-container">
+            <div className="buttons-container">
+              <Button
+                type="button"
+                id="btn1"
+                buttonType="google"
+                onClick={signInWithGoogle}
+                
+              >
+                <div>
+                  <i
+                    class="fa-brands fa-google"
+                    style={{
+                      color: " #ffffff",
+                      fontSize: "25px",
+                      marginTop: "11.5px",
+                      marginInlineEnd:"10px",
 
-        <FormInput label="Password" type="password" required onChange={handleChange} name="password" value={password}></FormInput>
-
-        <div className="buttons-container">
-          <Button type="submit">Sign In</Button>
-          <Button type="button" buttonType="google" onClick={signInWithGoogle}>
-            Google sign In
-          </Button>
-        </div>
-      </form>
-    </div>
+                    }}
+                  ></i>
+                </div>
+                <div>Login With Google</div>
+              </Button>
+              <br></br>
+              <Button
+                type="button"
+                id="btn2"
+              >
+                <div>
+                  <i
+                    class="fa-brands fa-facebook"
+                    style={{
+                      color: "#ffffff",
+                      fontSize: "26px",
+                      marginTop: "11.5px",
+                      marginInlineEnd:"10px",
+                    }}
+                  ></i>
+                </div>
+                <div>Login With Facebook </div>
+              </Button>
+              <br></br>
+              <Button
+                type="button"
+                id="btn3"
+              >
+                <div>
+                  <i
+                    class="fa-solid fa-phone"
+                    style={{
+                      color: " #ffffff",
+                      fontSize: "25px",
+                      marginTop: "11.5px",
+                      marginInlineEnd:"10px",
+                    }}
+                  ></i>
+                </div>
+                <div>Login With Mobile </div>
+              </Button>
+              <br></br>
+              <Button
+                type="button"
+                id="btn4"
+              >
+                <div>
+                  <i
+                    class="fa-solid fa-envelope"
+                    style={{
+                      color: " #ffffff",
+                      fontSize: "25px",
+                      marginTop: "11.5px",
+                      marginInlineEnd:"10px",
+                    }}
+                  ></i>
+                </div>
+                <div>Login With Email </div>
+              </Button>
+              <br></br>
+            </div>
+          </div>
+        </Card.Body>
+      </Card>
+    </>
   );
 };
 

@@ -1,4 +1,5 @@
 import "./footer.css";
+import strings from "../../localization/localization";
 export default function Footer(props) {
   return (
     <>
@@ -57,48 +58,44 @@ export default function Footer(props) {
           </section>
 
           <section class="">
-            <div class="row" style={{ marginRight: "20%" }}>
+            <div class="row" style={{display:"flex",justifyContent:"center"}}>
               <div class="col-lg-3 col-md-6 mb-4 mb-md-0">
                 <ul class="list-unstyled mb-0">
                   <li>
-                    <h4 class="text-uppercase">سوق كار</h4>
+                    <h4 >{strings.souqcar}</h4>
                   </li>
                   <li>
                     <a id="foot" href="#!" class="text-white">
-                      من نحن
+                    {strings.aboutus}   
                     </a>
                   </li>
                   <li>
                     <a id="foot" href="#!" class="text-white">
-                      تواصل معنا
+                    {strings.contactus}
                     </a>
                   </li>
-                  <li>
-                    <a id="foot" href="#!" class="text-white">
-                      English
-                    </a>
-                  </li>
+               
                 </ul>
               </div>
 
               <div class="col-lg-3 col-md-6 mb-4 mb-md-0">
                 <ul class="list-unstyled mb-0">
                   <li>
-                    <h4 class="text-uppercase">مساعدة</h4>
+                    <h4 >{strings.needhelp}</h4>
                   </li>
                   <li>
                     <a id="foot" href="#!" class="text-white">
-                      الأسئلة الشائعة
+                      {strings.faq}
                     </a>
                   </li>
                   <li>
                     <a id="foot" href="#!" class="text-white">
-                      سياسة الخصوصية
+                      {strings.privacypolicy}
                     </a>
                   </li>
                   <li>
                     <a id="foot" href="#!" class="text-white ">
-                      شروط الاستخدام
+                      {strings.termsofuse}
                     </a>
                   </li>
                 </ul>
@@ -107,22 +104,24 @@ export default function Footer(props) {
               <div class="col-lg-3 col-md-6 mb-4 mb-md-0">
                 <ul class="list-unstyled mb-0">
                   <li>
-                    <h4 class="text-uppercase">اشهر مصنعي السيارات</h4>
+                    <h4>{strings.famouscarmakers}</h4>
                   </li>
                   <li>
                     <a href="#!" id="foot" class="text-white">
-                      هيونداي
+                      {strings.hyundai}
                     </a>
                   </li>
 
                   <li>
                     <a href="#!" id="foot" class="text-white">
-                      مرسيدس بنز
+                      {
+                        strings.mercedes
+                      }
                     </a>
                   </li>
                   <li>
                     <a href="#!" id="foot" class="text-white">
-                      فيات
+                      {strings.fiat}
                     </a>
                   </li>
                 </ul>

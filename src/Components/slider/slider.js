@@ -1,6 +1,5 @@
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Navigation } from "swiper";
-
 import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
@@ -13,8 +12,10 @@ const SliderItems = (props) => {
 
   return (
     <>
-      <div className=" m-2">
+      <div className="my-2 " style={{position:"relative" , zIndex:"5"}}>
         <Swiper
+                      
+      
           modules={[Navigation]}
           navigation
           pagination={{ clickable: true }}
@@ -28,24 +29,25 @@ const SliderItems = (props) => {
               slidesPerView: 1,
               spaceBetween: 5,
             },
-            900: {
+            800: {
               slidesPerView: 2,
               spaceBetween: 5,
             },
-
-            1000: {
+            1100: {
               slidesPerView: 4,
               spaceBetween: 5,
             },
-            1050: {
+            1200: {
               slidesPerView: 5,
               spaceBetween: 5,
             },
           }}
+          style={{justifyContent:"center"}}
         >
           {cars.map((car) => (
-            <SwiperSlide>
-              <SliderCard key={car.id} car={car}></SliderCard>
+            
+            <SwiperSlide style={{justifyContent:"center"}} >
+              <SliderCard key={car.id} car={car}  ></SliderCard>
             </SwiperSlide>
           ))}
         </Swiper>

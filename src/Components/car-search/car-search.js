@@ -34,8 +34,8 @@ const CarSearch = () => {
 
   return (
     <>
-      <div className="parentContainer ">
-        <Row className="my-3 carouselRow">
+      <div className="parentContainer mb-4">
+        <Row className="py-3 carouselRow">
           <Col>
             <Carousel controls={false} indicators={false}>
               <Carousel.Item aria-hidden="false">
@@ -55,7 +55,7 @@ const CarSearch = () => {
             </Carousel>
           </Col>
         </Row>
-        <Row className="mb-3 inputRow justify-content-md-cente">
+        {/* <Row className="mb-3 inputRow justify-content-md-cente">
           <Col xs={12} md={12}>
             <Row>
               <Col xs={5} md={3} className="titleOfInputs">
@@ -76,7 +76,7 @@ const CarSearch = () => {
                   <div className=" w-100 buttonClass">{strings.used}</div>
                 </Col>
               </Row>
-              <Row className="my-3">
+               <Row className="my-3">
                 <Col xs={12} md={3}>
                   <div className="mb-2">
                     <Dropdown
@@ -142,10 +142,10 @@ const CarSearch = () => {
                     <Button>{strings.searchForACar}</Button>
                   </Form>
                 </Col>
-              </Row>
+              </Row> 
             </div>
           </Col>
-        </Row>
+        </Row> */}
       </div>
     </>
   );

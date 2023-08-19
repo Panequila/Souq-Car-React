@@ -2,117 +2,100 @@ import CarCart from "../../Components/car-cart/car-cart";
 import Filter from "../../Components/filter/filter";
 import ViewNav from "../../Components/view_nav/view_nav";
 import SliderItems from "../../Components/slider/slider";
-import NavigationBar from "../../Components/navbar/navbar";
-import { Container } from "react-bootstrap";
+import strings from "../../localization/localization";
+import "./buy-cars.css";
 import { useEffect, useState, useContext } from "react";
 import { addCollectionAndDocuments, getCars } from "../../firebase/firebase";
-import "./buy-cars.scss";
-import CARS_DATA from "../../cars_data";
+
+import CARS_DATA from "../../CarsData";
+import Spinner from "react-bootstrap/Spinner";
+
 import { CarContext } from "../../Contexts/car.cotnext";
 
 function BuyCarsPage(props) {
-  const cars = [
-    {
-      id: 1,
-      name: "Haval",
-      manufactureDate: 2011,
-      kilometers: 1000,
-      price: 300000,
-      location: "القاهره",
-    },
-    {
-      id: 2,
-      name: "Haval",
-      manufactureDate: 2011,
-      kilometers: 1000,
-      price: 300000,
-      location: "القاهره",
-    },
-    {
-      id: 3,
-      name: "Haval",
-      manufactureDate: 2000,
-      kilometers: 1000,
-      price: 300000,
-      location: "القاهره",
-    },
-    {
-      id: 4,
-      name: "Haval",
-      manufactureDate: 1999,
-      kilometers: 1000,
-      price: 300000,
-      location: "القاهره",
-    },
-    {
-      id: 5,
-      name: "Haval",
-      manufactureDate: 1999,
-      kilometers: 1000,
-      price: 300000,
-      location: "القاهره",
-    },
-    {
-      id: 6,
-      name: "Haval",
-      manufactureDate: 1999,
-      kilometers: 1000,
-      price: 300000,
-      location: "القاهره",
-    },
-    {
-      id: 7,
-      name: "Haval",
-      manufactureDate: 1999,
-      kilometers: 1000,
-      price: 300000,
-      location: "القاهره",
-    },
-    {
-      id: 8,
-      name: "Haval",
-      manufactureDate: 1999,
-      kilometers: 1000,
-      price: 300000,
-      location: "القاهره",
-    },
-  ];
-
   // Get the cars context
-  const { filteredCars } = useContext(CarContext);
+  const { filteredCars, setpage } = useContext(CarContext);
 
-  var localLang = localStorage.getItem("lang");
+  const [value, setValue] = useState();
+  //  useEffect(() => {
+  //     addCollectionAndDocuments("cars", CARS_DATA);
+  //  }, []);
+  useEffect(() => {
+    setpage("sale");
+    
+  }, []);
 
-  // use this whenever you want to add a collection to the database
-  // useEffect(() => {
-  //   addCollectionAndDocuments("cars", CARS_DATA);
-  // }, []);
+  const order = (value) => {
+    switch (value) {
+      case "2":
+        filteredCars.sort(function (a, b) {
+          return b.price - a.price;
+        });
 
-  // useEffect(() => {
-  //   const getCarsMap = async () => {
-  //     const carsMap = await getCars();
-  //     setCarsMap(carsMap.cars_for_sale);
-  //     // console.log(Array.isArray(carsMap.cars));
-  //     // console.log(carsMap.cars_for_sale);
-  //   };
+        setValue(value);
+        break;
+      case "3":
+        filteredCars.sort(function (a, b) {
+          return a.price - b.price;
+        });
 
-  //   // Call the asynchronus function
-  //   getCarsMap();
-  // }, []);
+        setValue(value);
+
+        break;
+      default:
+      // code block
+    }
+  };
 
   return (
     <>
-      <div className="row container2">
-        {/* <SliderItems cart={<SliderCard />} /> */}
-        <SliderItems cars={cars} />
+      <div className="row px-3 theme1">
+        <div
+          className="m-0"
+          style={{
+            borderRadius: "10px",
+            color: "white",
+            height: "90px",
+            width: "100%",
+            position: "relative",
+            background:
+              '#888 url("https://souq.car/imgs/sub-header.jpg") no-repeat center/cover ',
+            backgroundBlendMode: "multiply",
+          }}
+        >
+          <h1 style={{   position:"absolute ",
+        top:"45%",
+        transform:"translateY(-50%)"
+        
+        }}> {strings.buyCars}</h1>
+        </div>
 
-        <Filter />
+        {filteredCars ? (
+          <SliderItems cars={filteredCars} />
+        ) : (
+          <div style={{ height: "100%", textAlign: "center" }}>
+            {" "}
+            <Spinner
+              style={{ marginTop: "25%", padding: 25 }}
+              animation="border"
+            />
+          </div>
+        )}
+        <Filter state="buy" />
         <div className="col-sm-12 col-lg-9">
-          <ViewNav />
+          <ViewNav order={order} />
 
-          {filteredCars.map((car) => (
-            <CarCart key={car.id} car={car} />
-          ))}
+          {filteredCars ? (
+            filteredCars.map((car) => <CarCart key={car.id} car={car} />)
+          ) : (
+            <div style={{ height: "100%", textAlign: "center" }}>
+              {" "}
+              <Spinner
+                style={{ marginTop: "25%", padding: 25 }}
+                animation="border"
+              />
+            </div>
+          )}
         </div>
       </div>
     </>

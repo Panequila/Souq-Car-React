@@ -1,5 +1,5 @@
 .dropdown-container {
-  border: 1px solid #ccc;
+  /* border: 1px solid #ccc; */
   position: relative;
   border-radius: 5px;
 }
@@ -12,25 +12,30 @@
   align-items: center;
   justify-content: space-between;
   user-select: none;
-  /* position: relative; */
+  background-color: var(--gray-color);
+  color: var( --font-color);
+
 }
 
 .dropdown-car-menu {
   position: absolute;
   top: 29px;
   width: 100%;
-  border: 1px solid #ccc;
+  /* border: 1px solid #ccc; */
   transform: translateY(4px);
   border-radius: 5px;
   overflow: auto;
   max-height: 150px;
-  background-color: #fff;
+  background-color: var(--gray-color);
   display: block !important ;
+ z-index: 9;
+
 }
 
 .dropdown-item {
   cursor: pointer;
   padding: 5px;
+  
 }
 
 .dropdown-item:hover {
@@ -40,6 +45,7 @@
 .dropdown-selected-value {
   width: 100%;
   border-radius: 5px;
+  
 }
 
 .dropdown-item.selected {

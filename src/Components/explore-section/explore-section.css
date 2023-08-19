@@ -3,11 +3,13 @@
   position: relative;
   box-shadow: 2px 2px 10px 0px #0000003d;
   border-radius: 10px;
+  background-color: var(--gray-color);
+  color: var(--font-color);
 }
 .expioreCard:hover {
   border: 3px solid blue;
   border-radius: 19px;
-  background-color: #99b5ff;
+  background-color: var( --background-color-hover);
 }
 .exploreText {
   text-align: center;
@@ -15,4 +17,6 @@
   font-weight: bold;
   font-size: 23px;
   top: 40px;
+  color: var(--font-color);
 }
+

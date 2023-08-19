@@ -1,9 +1,18 @@
-@media (max-width: 1000px) {
+#imagee {
+  height: 200px;
+}
+
+/* @media (max-width: 1000px) {
   #imagee {
     height: 200px;
   }
-}
+} */
 #theme{
-  background-color: var(--card-color);
+  background-color: var(--gray-color);
   color: var(--font-color); 
+}
+.textCardOverFlow{
+  text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
 }
